@@ -1,14 +1,12 @@
 <!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
 <suite name="SystemSuite" verbose="1">
 	<parameter name="orderingDataFile" value="./src/test/resources/ordering_test_data.xlsx" />
-	<parameter name="groupOrderingDataFile" value="./src/test/resources/group_ordering_test_data.xlsx" />
 	<parameter name="loginDataFile" value="./src/test/resources/loginDataTest.xlsx" />
 	<parameter name="workbookXlsDataFile" value="./src/test/resources/workbook.xls" />
 	<parameter name="workbookXlsxDataFile" value="./src/test/resources/workbook.xlsx" />
 	<parameter name="seleniumReportPathParam" value="target/reporting/detailed reports" />
-	<parameter name="serverAddress" value="http://epuadnist0000v9/order/" /> <!-- v. 3.1 -->
+	<parameter name="serverAddress" value="http://www.casus-belli.com/en/" />
 	<parameter name="image_dir_name" value="img/"/>
-	<parameter name="userNumber" value="2"/>
 	<parameter name="encoding" value="UTF-8"/>
 
 	<test name="System">
@@ -22,10 +20,11 @@
 		</groups>
 
 		<packages>
-			<package name="com.epam.cara.core" />
-			<package name="com.epam.cara.core.dataprovider" />
-			<package name="com.epam.cara.testcases.smoke" />
-			<package name="com.epam.cara.core.mail" />
+			<package name="com.companyname.casusbelli.core" />
+			<package name="com.companyname.casusbelli.core.dataprovider" />
+			<package name="com.companyname.casusbelli.testcases.smoke" />
+			<package name="com.companyname.casusbelli.testcases.userregistration" />
+			<package name="com.companyname.casusbelli.core.mail" />			
 		</packages>
 	</test>
 </suite>

@@ -75,7 +75,6 @@ public class TestCase extends BaseTestCase{
         	log.shutdown();
         	log = null;
         	fileappender.close();
-        	
-        }
+         }
      }
 }
