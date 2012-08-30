@@ -24,6 +24,7 @@
 			<package name="com.companyname.casusbelli.core.dataprovider" />
 			<package name="com.companyname.casusbelli.testcases.smoke" />
 			<package name="com.companyname.casusbelli.testcases.userregistration" />
+			<package name="com.companyname.casusbelli.testcases.demo" />
 			<package name="com.companyname.casusbelli.core.mail" />			
 		</packages>
 	</test>

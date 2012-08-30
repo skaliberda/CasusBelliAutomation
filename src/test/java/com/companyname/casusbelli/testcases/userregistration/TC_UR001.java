@@ -8,7 +8,7 @@ import com.companyname.casusbelli.web.structure.pages.RegisterPage;
 public class TC_UR001 extends TestCase {
 
 //	@Test(groups = { "smoke" })
-	@Test(groups = { "dev" })
+//	@Test(groups = { "dev" })
 	public void testReservation() throws Exception {
 		HomePage homePage = new HomePage(driver);
 		homePage.verify();
