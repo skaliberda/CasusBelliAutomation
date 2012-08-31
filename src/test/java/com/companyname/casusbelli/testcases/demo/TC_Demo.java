@@ -3,6 +3,7 @@ package com.companyname.casusbelli.testcases.demo;
 import org.testng.annotations.Test;
 
 import com.companyname.casusbelli.core.TestCase;
+import com.companyname.casusbelli.web.components.ConfiguratorComponent;
 import com.companyname.casusbelli.web.components.ShopComponent;
 import com.companyname.casusbelli.web.structure.pages.DockPage;
 import com.companyname.casusbelli.web.structure.pages.HomePage;
@@ -17,10 +18,10 @@ public class TC_Demo extends TestCase {
 		homePage.verify();
 		RegisterPage registerPage = homePage.signUp();
 		registerPage.verify();
-		registerPage.enterEmail("test3h1ty@mailinator.com");
+		registerPage.enterEmail("teskjkth1ty@mailinator.com");
 		DockPage dockPage = registerPage.playForFree();
 		dockPage.verify();
-		dockPage.enterCharacterName("Space_user2");
+		dockPage.enterCharacterName("Space_user7");
 		dockPage.nextTutorial();
 		dockPage.nextTutorial();
 		dockPage.nextTutorial();
@@ -31,5 +32,14 @@ public class TC_Demo extends TestCase {
 		shopComponent.selectMissileLauncherL1();
 		shopComponent.buyItem();
 		shopComponent.confirmBuying();
+		shopComponent.openAmmunitionAndProjectiles();
+		shopComponent.openMissilesAndTorpedoes();
+		shopComponent.selectRocketL1();
+		shopComponent.buyItem();
+		shopComponent.confirmBuying();
+		ConfiguratorComponent configuratorComponent =  dockPage.openConfigurator();
+		configuratorComponent.selectMissileLauncher();
+		configuratorComponent.equipRocketL1();
+		dockPage.toSpace();
 	}
 }

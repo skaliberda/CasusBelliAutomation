@@ -2,6 +2,7 @@ package com.companyname.casusbelli.web.structure.pages;
 
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
+import com.companyname.casusbelli.web.components.ConfiguratorComponent;
 import com.companyname.casusbelli.web.components.ShopComponent;
 import com.companyname.casusbelli.web.elements.InputElement;
 import com.companyname.casusbelli.web.elements.NavigationElement;
@@ -12,6 +13,9 @@ public class DockPage extends BasePage {
 	private InputElement characterNameField = getInputElement("//input[@id='character-name']");
 	private NavigationElement nextTutorialButton = getNavigationElement("//div[@id='girl-helper']/div[contains(@class, 'button')]");
 	private NavigationElement shopLink = getNavigationElement("//a[@id='shop-button']");
+	private NavigationElement configuratorLink = getNavigationElement("//a[@id='config-button']");
+	private NavigationElement toSpaceLink = getNavigationElement("//a[@id='launch-button']");
+	
 
 	public DockPage(EventFiringWebDriver driver) {
 		super(driver);
@@ -40,5 +44,19 @@ public class DockPage extends BasePage {
 		assertThis("Shop link is absent on Dock page", shopLink.isElementPresent());
 		shopLink.click();	
 		return new ShopComponent(driver);
+	}
+
+	public ConfiguratorComponent openConfigurator() throws Exception {
+		configuratorLink.waitForElement();
+		assertThis("Configuration link is absent on Dock page", configuratorLink.isElementPresent());
+		configuratorLink.click();	
+		return new ConfiguratorComponent(driver);
+	}
+	
+	public void toSpace() throws Exception {
+		toSpaceLink.waitForElement();
+		assertThis("To Space Link is absent on Dock page", toSpaceLink.isElementPresent());
+		toSpaceLink.click();	
+		
 	}
 }

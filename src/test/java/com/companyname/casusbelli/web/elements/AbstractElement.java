@@ -9,6 +9,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
@@ -158,6 +159,12 @@ public class AbstractElement  {
 		Actions builder = new Actions(driver);
 		log.debug("Mouse moving to the element found By.xpath: " + elementLocator);
 		builder.moveToElement(driver.findElement(By.xpath(elementLocator))).build().perform();
+	}
+	
+	public void drugAndDrop(WebElement target){
+		Actions builder = new Actions(driver);
+		log.debug("Mouse drug element found By.xpath: " + elementLocator);
+		builder.dragAndDrop(driver.findElement(By.xpath(elementLocator)), target).build().perform();
 	}
 	
 	public void contextClick(){  
