@@ -18,10 +18,10 @@ public class TC_Demo extends TestCase {
 		homePage.verify();
 		RegisterPage registerPage = homePage.signUp();
 		registerPage.verify();
-		registerPage.enterEmail("teskjkth1ty@mailinator.com");
+		registerPage.enterEmail("teghj8th1ty@mailinator.com");
 		DockPage dockPage = registerPage.playForFree();
 		dockPage.verify();
-		dockPage.enterCharacterName("Space_user7");
+		dockPage.enterCharacterName("Space_user10");
 		dockPage.nextTutorial();
 		dockPage.nextTutorial();
 		dockPage.nextTutorial();

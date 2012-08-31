@@ -161,10 +161,10 @@ public class AbstractElement  {
 		builder.moveToElement(driver.findElement(By.xpath(elementLocator))).build().perform();
 	}
 	
-	public void drugAndDrop(WebElement target){
+	public void drugAndDrop(String targetLocator){
 		Actions builder = new Actions(driver);
 		log.debug("Mouse drug element found By.xpath: " + elementLocator);
-		builder.dragAndDrop(driver.findElement(By.xpath(elementLocator)), target).build().perform();
+		builder.dragAndDrop(driver.findElement(By.xpath(elementLocator)), driver.findElement(By.xpath(targetLocator))).build().perform();
 	}
 	
 	public void contextClick(){  
