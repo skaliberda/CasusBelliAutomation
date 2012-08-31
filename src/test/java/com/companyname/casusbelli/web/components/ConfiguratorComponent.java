@@ -8,10 +8,10 @@ import com.companyname.casusbelli.web.structure.BasePage;
 public class ConfiguratorComponent extends BasePage {
 	
 	private NavigationElement missileLauncherButton = getNavigationElement("//div[contains(@class, 'rocket-launcher-1_i')]");
-	private NavigationElement rocketL1Button = getNavigationElement("//div[contains(@class, 'rocket-launcher-1_i')]");////div[@id='store-cells']
+	private NavigationElement rocketL1Button = getNavigationElement("//div[@id='store-cells']//div[contains(@class, 'rocket-1_i eq')]");
 //	private NavigationElement rocketLauncherSlotButton = getNavigationElement("//div[@id='slots-equipment-id-1018900']");
 //	private String rocketLauncherSlotButtonLocator = "//div[@id='store-cells']//div[contains(@class, 'missile-launcher-md-charge-1_i')]";
-	private String rocketLauncherSlotButtonLocator = "//div[contains(@id, 'shop-catalog-27')]";////div[@id='store-cells']
+	private String rocketLauncherSlotButtonLocator = "//div[@class='weapon']//div[@class='left']/div[contains(@class, 'cell slot ui-droppable')]";////div[@id='store-cells']
 //	private WebElement rocketLauncherSlotButton = driver.findElement(By.xpath("//div[@id='store-cells']//div[contains(@class, 'missile-launcher-md-charge-1_i')]"));
 	
 	public ConfiguratorComponent(EventFiringWebDriver driver) {

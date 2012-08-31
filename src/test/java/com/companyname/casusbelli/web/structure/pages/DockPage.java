@@ -30,7 +30,6 @@ public class DockPage extends BasePage {
 
 	public void verify() {
 		// TODO Auto-generated method stub
-		
 	}
 
 	public void nextTutorial() throws Exception {
@@ -49,7 +48,7 @@ public class DockPage extends BasePage {
 	public ConfiguratorComponent openConfigurator() throws Exception {
 		configuratorLink.waitForElement();
 		assertThis("Configuration link is absent on Dock page", configuratorLink.isElementPresent());
-		configuratorLink.click();	
+		configuratorLink.mouseClick();	
 		return new ConfiguratorComponent(driver);
 	}
 	

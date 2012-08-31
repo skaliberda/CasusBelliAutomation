@@ -164,7 +164,7 @@ public class AbstractElement  {
 	public void drugAndDrop(String targetLocator){
 		Actions builder = new Actions(driver);
 		log.debug("Mouse drug element found By.xpath: " + elementLocator);
-		builder.clickAndHold().moveToElement(driver.findElement(By.xpath(targetLocator))).release().build().perform();
+		builder.clickAndHold(driver.findElement(By.xpath(elementLocator))).moveToElement(driver.findElement(By.xpath(targetLocator))).release().build().perform();
 //		builder.dragAndDrop(driver.findElement(By.xpath(elementLocator)), driver.findElement(By.xpath(targetLocator))).build().perform();
 	}
 	

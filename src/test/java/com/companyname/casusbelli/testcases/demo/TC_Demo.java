@@ -39,8 +39,11 @@ public class TC_Demo extends TestCase {
 		shopComponent.buyItem();
 		shopComponent.confirmBuying();
 		ConfiguratorComponent configuratorComponent =  dockPage.openConfigurator();
+		Thread.sleep(2000);
 		configuratorComponent.selectMissileLauncher();
+		Thread.sleep(2000);
 		configuratorComponent.equipRocketL1();
+		Thread.sleep(2000);
 		dockPage.toSpace();
 	}
 }
