@@ -56,10 +56,10 @@ public class Utils {
 		return "@" + mailDomain + "." + mailSecondDomain;
 	}
 	
-	public static String getUniqueOrderName(){
-		String orderName = randomString(getRandomNumberInRange(3, 20));
-		System.out.println("Order Name: " + orderName);
-		return orderName;
+	public static String getUniqueUserName(){
+		String userName = randomString(getRandomNumberInRange(3, 9));
+		System.out.println("User name: " + userName);
+		return userName;
 	}
 
 	public static void waitInterval(long interval){

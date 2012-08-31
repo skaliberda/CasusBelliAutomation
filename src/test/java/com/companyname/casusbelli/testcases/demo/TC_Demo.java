@@ -3,6 +3,7 @@ package com.companyname.casusbelli.testcases.demo;
 import org.testng.annotations.Test;
 
 import com.companyname.casusbelli.core.TestCase;
+import com.companyname.casusbelli.utils.Utils;
 import com.companyname.casusbelli.web.components.ConfiguratorComponent;
 import com.companyname.casusbelli.web.components.ShopComponent;
 import com.companyname.casusbelli.web.structure.pages.DockPage;
@@ -18,10 +19,10 @@ public class TC_Demo extends TestCase {
 		homePage.verify();
 		RegisterPage registerPage = homePage.signUp();
 		registerPage.verify();
-		registerPage.enterEmail("34656asd1y@mailinator.com");
+		registerPage.enterEmail(Utils.getUniqueNameForEmail() + "@mailinator.com");
 		DockPage dockPage = registerPage.playForFree();
 		dockPage.verify();
-		dockPage.enterCharacterName("Space_user18");
+		dockPage.enterCharacterName("Test_" + Utils.getUniqueUserName());
 		dockPage.nextTutorial();
 		dockPage.nextTutorial();
 		dockPage.nextTutorial();

@@ -148,7 +148,7 @@ public class AbstractElement  {
 	}
 
 	public boolean waitForElement() throws Exception {
-		return waitForElement(200);
+		return waitForElement(500);
 	}
 
 	public boolean waitForElement(long time) throws Exception {
