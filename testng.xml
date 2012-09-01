@@ -1,9 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
 <suite name="SystemSuite" verbose="1">
-	<parameter name="orderingDataFile" value="./src/test/resources/ordering_test_data.xlsx" />
-	<parameter name="loginDataFile" value="./src/test/resources/loginDataTest.xlsx" />
-	<parameter name="workbookXlsDataFile" value="./src/test/resources/workbook.xls" />
-	<parameter name="workbookXlsxDataFile" value="./src/test/resources/workbook.xlsx" />
 	<parameter name="seleniumReportPathParam" value="target/reporting/detailed reports" />
 	<parameter name="serverAddress" value="http://www.casus-belli.com/en/" />
 	<parameter name="image_dir_name" value="img/"/>

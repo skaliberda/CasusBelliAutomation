@@ -28,6 +28,6 @@ public class ConfiguratorComponent extends BasePage {
 	public void equipRocketL1() throws Exception {
 		rocketL1Button.waitForElement();
 		assertThis("Rocket L1 button is absent on Dock page", rocketL1Button.isElementPresent());
-		rocketL1Button.drugAndDrop(rocketLauncherSlotButtonLocator);		
+		rocketL1Button.dragAndDrop(rocketLauncherSlotButtonLocator);		
 	}
 }

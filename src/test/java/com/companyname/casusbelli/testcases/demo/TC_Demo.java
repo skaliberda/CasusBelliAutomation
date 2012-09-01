@@ -13,8 +13,8 @@ import com.companyname.casusbelli.web.structure.pages.RegisterPage;
 public class TC_Demo extends TestCase {
 	
 //	@Test(groups = { "smoke" })
-	@Test(groups = { "dev" })
-	public void testReservation() throws Exception {
+//	@Test(groups = { "dev" })
+	public void test() throws Exception {
 		HomePage homePage = new HomePage(driver);
 		homePage.verify();
 		RegisterPage registerPage = homePage.signUp();
@@ -39,11 +39,9 @@ public class TC_Demo extends TestCase {
 		shopComponent.buyItem();
 		shopComponent.confirmBuying();
 		ConfiguratorComponent configuratorComponent =  dockPage.openConfigurator();
-		Thread.sleep(2000);
 		configuratorComponent.selectMissileLauncher();
-		Thread.sleep(2000);
 		configuratorComponent.equipRocketL1();
-		Thread.sleep(2000);
 		dockPage.toSpace();
+//		TODO: Verify email pop up window
 	}
 }

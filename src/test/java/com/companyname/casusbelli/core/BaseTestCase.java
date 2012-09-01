@@ -17,13 +17,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
-import com.companyname.casusbelli.core.configuration.GroupInviteGuestsConfiguration;
-import com.companyname.casusbelli.core.configuration.GroupLoginConfiguration;
-import com.companyname.casusbelli.core.configuration.GroupOrderSetupConfiguration;
-import com.companyname.casusbelli.core.configuration.GroupPaymentConfiguration;
-import com.companyname.casusbelli.core.configuration.LoginConfiguration;
-import com.companyname.casusbelli.core.configuration.OrderSetupConfiguration;
-import com.companyname.casusbelli.core.configuration.PaymentConfiguration;
 import com.companyname.casusbelli.utils.Constants;
 import com.companyname.casusbelli.web.structure.BasePage;
 
@@ -45,25 +38,7 @@ public class BaseTestCase {
 //    private static final String MAXIMIZE_BROWSER_WINDOW = "if (window.screen) {window.moveTo(0, 0);window.resizeTo(window.screen.availWidth,window.screen.availHeight);};";
    
     protected BasePage currentPage;
-    protected String testCaseName;
-
-//  Test data configuration for ordering
-    protected LoginConfiguration validLoginData;
-    protected LoginConfiguration invalidLoginData;
-    protected OrderSetupConfiguration validOrderSetupData;
-    protected OrderSetupConfiguration invalidOrderSetupData;
-    protected PaymentConfiguration validPaymentData;
-    protected PaymentConfiguration invalidPaymentData;
-    
-//  Test data configuration for group ordering
-    protected GroupLoginConfiguration validGroupLoginData;
-    protected GroupLoginConfiguration invalidGroupLoginData;
-    protected GroupOrderSetupConfiguration validGroupOrderSetupData;
-    protected GroupOrderSetupConfiguration invalidGroupOrderSetupData;
-    protected GroupPaymentConfiguration validGroupPaymentData;
-    protected GroupPaymentConfiguration invalidGroupPaymentData;
-    protected GroupInviteGuestsConfiguration validGroupInviteData;
-    protected GroupInviteGuestsConfiguration invalidGroupInviteData;
+   
     
     protected String getCurrentlyExecutingClassName() {
 		return this.getClass().getSimpleName();
