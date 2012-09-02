@@ -1,9 +1,9 @@
-package com.infinitios.casusbelli.testcases.smoke;
+package com.infinitios.casusbelli.en.testcases.smoke;
 
 import org.testng.annotations.Test;
 
 import com.infinitios.casusbelli.core.TestCase;
-import com.infinitios.casusbelli.web.structure.pages.HomePage;
+import com.infinitios.casusbelli.web.structure.en.pages.HomePage;
 
 public class TC_S0001 extends TestCase {
 

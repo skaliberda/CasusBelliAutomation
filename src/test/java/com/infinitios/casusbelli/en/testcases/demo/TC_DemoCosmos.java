@@ -1,10 +1,10 @@
-package com.infinitios.casusbelli.testcases.demo;
+package com.infinitios.casusbelli.en.testcases.demo;
 
 import org.testng.annotations.Test;
 
 import com.infinitios.casusbelli.core.TestCase;
-import com.infinitios.casusbelli.web.structure.pages.DockPage;
-import com.infinitios.casusbelli.web.structure.pages.HomePage;
+import com.infinitios.casusbelli.web.structure.en.pages.DockPage;
+import com.infinitios.casusbelli.web.structure.en.pages.HomePage;
 
 public class TC_DemoCosmos extends TestCase {
 	

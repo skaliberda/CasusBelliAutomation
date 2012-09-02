@@ -1,4 +1,4 @@
-package com.infinitios.casusbelli.web.structure.pages;
+package com.infinitios.casusbelli.web.structure.en.pages;
 
 import com.infinitios.casusbelli.web.elements.InputElement;
 import com.infinitios.casusbelli.web.elements.NavigationElement;

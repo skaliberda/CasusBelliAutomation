@@ -1,10 +1,10 @@
-package com.infinitios.casusbelli.testcases.userregistration;
+package com.infinitios.casusbelli.en.testcases.userregistration;
 
 import org.testng.annotations.Test;
 
 import com.infinitios.casusbelli.core.TestCase;
-import com.infinitios.casusbelli.web.structure.pages.HomePage;
-import com.infinitios.casusbelli.web.structure.pages.RegisterPage;
+import com.infinitios.casusbelli.web.structure.en.pages.HomePage;
+import com.infinitios.casusbelli.web.structure.en.pages.RegisterPage;
 
 public class TC_UR001 extends TestCase {
 

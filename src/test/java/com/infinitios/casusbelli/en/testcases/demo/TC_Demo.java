@@ -1,14 +1,14 @@
-package com.infinitios.casusbelli.testcases.demo;
+package com.infinitios.casusbelli.en.testcases.demo;
 
 import org.testng.annotations.Test;
 
 import com.infinitios.casusbelli.core.TestCase;
 import com.infinitios.casusbelli.utils.Utils;
-import com.infinitios.casusbelli.web.components.ConfiguratorComponent;
-import com.infinitios.casusbelli.web.components.ShopComponent;
-import com.infinitios.casusbelli.web.structure.pages.DockPage;
-import com.infinitios.casusbelli.web.structure.pages.HomePage;
-import com.infinitios.casusbelli.web.structure.pages.RegisterPage;
+import com.infinitios.casusbelli.web.en.components.ConfiguratorComponent;
+import com.infinitios.casusbelli.web.en.components.ShopComponent;
+import com.infinitios.casusbelli.web.structure.en.pages.DockPage;
+import com.infinitios.casusbelli.web.structure.en.pages.HomePage;
+import com.infinitios.casusbelli.web.structure.en.pages.RegisterPage;
 
 public class TC_Demo extends TestCase {
 	

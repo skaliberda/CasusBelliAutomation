@@ -1,11 +1,11 @@
-package com.infinitios.casusbelli.web.structure.pages;
+package com.infinitios.casusbelli.web.structure.en.pages;
 
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
-import com.infinitios.casusbelli.web.components.ConfiguratorComponent;
-import com.infinitios.casusbelli.web.components.ShopComponent;
 import com.infinitios.casusbelli.web.elements.InputElement;
 import com.infinitios.casusbelli.web.elements.NavigationElement;
+import com.infinitios.casusbelli.web.en.components.ConfiguratorComponent;
+import com.infinitios.casusbelli.web.en.components.ShopComponent;
 import com.infinitios.casusbelli.web.structure.BasePage;
 
 public class DockPage extends BasePage {

@@ -1,4 +1,4 @@
-package com.infinitios.casusbelli.web.structure.pages;
+package com.infinitios.casusbelli.web.structure.en.pages;
 
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
