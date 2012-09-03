@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import com.infinitios.casusbelli.core.TestCase;
 import com.infinitios.casusbelli.web.structure.en.pages.DockPage;
 import com.infinitios.casusbelli.web.structure.en.pages.HomePage;
+import com.infinitios.casusbelli.web.structure.en.pages.SpacePage;
 
 public class TC_DemoCosmos extends TestCase {
 	
@@ -14,7 +15,12 @@ public class TC_DemoCosmos extends TestCase {
 		homePage.verify();
 		homePage.login("archyyudin@mailinator.com", "ares94080");
 		DockPage dockPage = homePage.play();
-		dockPage.toSpace();
+		SpacePage spacePage = dockPage.toSpace();
+		Thread.sleep(5000);
+		spacePage.verify();
+		spacePage.accelerateTo100miles();
+		spacePage.logOutFromSpace();
+		
 		
 	}
 }

@@ -52,10 +52,10 @@ public class DockPage extends BasePage {
 		return new ConfiguratorComponent(driver);
 	}
 	
-	public void toSpace() throws Exception {
+	public SpacePage toSpace() throws Exception {
 		toSpaceLink.waitForElement();
 		assertThis("To Space Link is absent on Dock page", toSpaceLink.isElementPresent());
 		toSpaceLink.click();	
-		
+		return new SpacePage(driver);
 	}
 }

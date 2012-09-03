@@ -124,6 +124,12 @@ public class AbstractElement  {
 //		}
 //
 //	}
+	
+	public void clickAtCoordinates(int left, int top){
+		Actions builder = new Actions(driver);
+		builder.moveToElement(driver.findElement(By.xpath(elementLocator))).moveByOffset(left, top).clickAndHold().release().build().perform();
+		log.debug("Driver clicks on top coordiane: " + top + " and left coordinate: " + left);
+	}
 		
 	public boolean isElementPresent() throws Exception {
 		try {

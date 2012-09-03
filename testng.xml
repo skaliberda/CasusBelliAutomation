@@ -16,12 +16,15 @@
 		</groups>
 
 		<packages>
-			<package name="com.companyname.casusbelli.core" />
-			<package name="com.companyname.casusbelli.core.dataprovider" />
-			<package name="com.companyname.casusbelli.testcases.smoke" />
-			<package name="com.companyname.casusbelli.testcases.userregistration" />
-			<package name="com.companyname.casusbelli.testcases.demo" />
-			<package name="com.companyname.casusbelli.core.mail" />			
+			<package name="com.infinitios.casusbelli.core" />
+			<package name="com.infinitios.casusbelli.core.dataprovider" />
+			<package name="com.infinitios.casusbelli.en.testcases.smoke" />
+			<package name="com.infinitios.casusbelli.ru.testcases.smoke" />
+			<package name="com.infinitios.casusbelli.en.testcases.userregistration" />
+			<package name="com.infinitios.casusbelli.ru.testcases.userregistration" />
+			<package name="com.infinitios.casusbelli.en.testcases.demo" />
+			<package name="com.infinitios.casusbelli.ru.testcases.demo" />
+			<package name="com.infinitios.casusbelli.core.mail" />			
 		</packages>
 	</test>
 </suite>

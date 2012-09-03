@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import com.infinitios.casusbelli.core.BaseTestCase;
@@ -31,8 +32,8 @@ public class BasePage /*implements Page*/ {
 	
 	public void acceptConfirmation()throws Exception{
 		Alert alert = driver.switchTo().alert();
-		log.debug("Alert window is accepted");
 		alert.accept();
+		log.debug("Alert window is accepted");
 	}
 	
     public int getElementCount(String locator) {
