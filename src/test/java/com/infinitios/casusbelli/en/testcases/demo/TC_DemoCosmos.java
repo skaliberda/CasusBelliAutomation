@@ -16,7 +16,7 @@ public class TC_DemoCosmos extends TestCase {
 		homePage.login("archyyudin@mailinator.com", "ares94080");
 		DockPage dockPage = homePage.play();
 		SpacePage spacePage = dockPage.toSpace();
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		spacePage.verify();
 		spacePage.accelerateTo100miles();
 		spacePage.logOutFromSpace();
