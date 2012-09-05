@@ -1,4 +1,4 @@
-package com.infinitios.casusbelli.en.testcases.demo;
+package com.infinitios.casusbelli.en.testcases.space;
 
 import org.testng.annotations.Test;
 
@@ -7,18 +7,19 @@ import com.infinitios.casusbelli.web.structure.en.pages.DockPage;
 import com.infinitios.casusbelli.web.structure.en.pages.HomePage;
 import com.infinitios.casusbelli.web.structure.en.pages.SpacePage;
 
-public class TC_DemoCosmos extends TestCase {
-	
-//	@Test(groups = { "dev" })
+public class TC_FirstSpaceQuest extends TestCase {
+
+	@Test(groups = { "dev" })
 	public void test() throws Exception {
 		HomePage homePage = new HomePage(driver);
 		homePage.verify();
-		homePage.login("s.kaliberda@mailinator.com", "password1");
+		homePage.login("usercas@mailinator.com", "password1");
 		DockPage dockPage = homePage.play();
 		SpacePage spacePage = dockPage.toSpace();
-		Thread.sleep(10000);
-		spacePage.verify();
+		Thread.sleep(3000);
+//		spacePage.verify();
 		spacePage.accelerateTo100miles();
+		spacePage.goToTheFirstPoint();
 		spacePage.logOutFromSpace();
 		
 		

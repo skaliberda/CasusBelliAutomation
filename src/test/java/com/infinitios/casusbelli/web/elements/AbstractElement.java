@@ -24,7 +24,7 @@ public class AbstractElement  {
 	protected EventFiringWebDriver driver;
 	protected String elementLocator;
 	protected Logger log = TestCase.log;
-	private String clickOnCanvasJS = " function click(element, x, y) {element = $(element); element.trigger($.Event('mousedown', {which: 1, clientX: x, clientY: y })); element.trigger($.Event('mouseup', { which: 1, clientX: x, clientY: y })); element.trigger($.Event('click', { which: 1, clientX: x, clientY: y }));} click('#canvas', 100, 100);";
+
 	private String getAiming = "return TestUtils.aiming";
 	
 	private static Object executeJavascript(WebDriver driver, String script){
@@ -131,8 +131,15 @@ public class AbstractElement  {
 //		builder.moveToElement(driver.findElement(By.xpath(elementLocator))).moveByOffset(left, top).clickAndHold().release().build().perform();
 //		log.debug("Driver clicks on top coordiane: " + top + " and left coordinate: " + left);
 		
+		String clickOnCanvasJS = " function click(element, x, y) {element = $(element); element.trigger($.Event('mousedown', {which: 1, clientX: x, clientY: y })); element.trigger($.Event('mouseup', { which: 1, clientX: x, clientY: y })); element.trigger($.Event('click', { which: 1, clientX: x, clientY: y }));} click('#canvas', "+ left +", "+ top +");";
 		executeJavascript(driver, clickOnCanvasJS);
-		System.out.println("Ship aiming: " + executeJavascript(driver, getAiming));
+//		System.out.println("Ship aiming: " + executeJavascript(driver, getAiming));
+	}
+	
+	public void pressSpace() {
+		Actions builder = new Actions(driver);
+		builder.sendKeys(Keys.SPACE).build().perform();
+		log.debug("Space button is pressed");
 	}
 		
 	public boolean isElementPresent() throws Exception {

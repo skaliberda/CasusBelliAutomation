@@ -24,7 +24,8 @@
 			<package name="com.infinitios.casusbelli.ru.testcases.userregistration" />
 			<package name="com.infinitios.casusbelli.en.testcases.demo" />
 			<package name="com.infinitios.casusbelli.ru.testcases.demo" />
-			<package name="com.infinitios.casusbelli.core.mail" />			
+			<package name="com.infinitios.casusbelli.en.testcases.space" />
+			<package name="com.infinitios.casusbelli.core.mail" />	
 		</packages>
 	</test>
 </suite>
