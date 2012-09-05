@@ -19,6 +19,7 @@ public class TC_FirstSpaceQuest extends TestCase {
 		Thread.sleep(3000);
 //		spacePage.verify();
 		spacePage.accelerateTo100miles();
+		currentPage.verifyPrecenceOfMsg(/*"1/6 quest is done"*/"");//Implement me
 		spacePage.goToTheFirstPoint();
 		spacePage.logOutFromSpace();
 		

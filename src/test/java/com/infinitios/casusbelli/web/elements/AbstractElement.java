@@ -5,15 +5,11 @@ import java.awt.event.InputEvent;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
-import com.infinitios.casusbelli.core.TestCase;
+import com.infinitios.casusbelli.core.BaseTestCase;
 
 /**
  * @author Sergey_Kaliberda
@@ -23,15 +19,8 @@ public class AbstractElement  {
 
 	protected EventFiringWebDriver driver;
 	protected String elementLocator;
-	protected Logger log = TestCase.log;
+	protected Logger log = Logger.getLogger(BaseTestCase.class);
 
-	private String getAiming = "return TestUtils.aiming";
-	
-	private static Object executeJavascript(WebDriver driver, String script){
-	    JavascriptExecutor js=(JavascriptExecutor) driver;
-	return js.executeScript(script);
-	}
-	
 	public AbstractElement(String locator) {
 		this.elementLocator = locator;
 	}
@@ -126,22 +115,6 @@ public class AbstractElement  {
 //
 //	}
 	
-	public void clickAtCoordinates(int left, int top){
-//		Actions builder = new Actions(driver);
-//		builder.moveToElement(driver.findElement(By.xpath(elementLocator))).moveByOffset(left, top).clickAndHold().release().build().perform();
-//		log.debug("Driver clicks on top coordiane: " + top + " and left coordinate: " + left);
-		
-		String clickOnCanvasJS = " function click(element, x, y) {element = $(element); element.trigger($.Event('mousedown', {which: 1, clientX: x, clientY: y })); element.trigger($.Event('mouseup', { which: 1, clientX: x, clientY: y })); element.trigger($.Event('click', { which: 1, clientX: x, clientY: y }));} click('#canvas', "+ left +", "+ top +");";
-		executeJavascript(driver, clickOnCanvasJS);
-//		System.out.println("Ship aiming: " + executeJavascript(driver, getAiming));
-	}
-	
-	public void pressSpace() {
-		Actions builder = new Actions(driver);
-		builder.sendKeys(Keys.SPACE).build().perform();
-		log.debug("Space button is pressed");
-	}
-		
 	public boolean isElementPresent() throws Exception {
 		try {
 			driver.findElement(By.xpath(elementLocator)).isDisplayed();

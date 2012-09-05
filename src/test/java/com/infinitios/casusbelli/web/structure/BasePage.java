@@ -8,13 +8,13 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import com.infinitios.casusbelli.core.BaseTestCase;
 import com.infinitios.casusbelli.web.elements.AbstractElement;
 import com.infinitios.casusbelli.web.elements.CheckBoxElement;
 import com.infinitios.casusbelli.web.elements.InputElement;
+import com.infinitios.casusbelli.web.elements.JSExecutor;
 import com.infinitios.casusbelli.web.elements.NavigationElement;
 import com.infinitios.casusbelli.web.elements.OutputElement;
 import com.infinitios.casusbelli.web.elements.SelectElement;
@@ -24,10 +24,11 @@ import static org.fest.assertions.Assertions.assertThat;
 public class BasePage /*implements Page*/ {
 	protected EventFiringWebDriver driver;
 	protected Logger log = Logger.getLogger(BaseTestCase.class);
-	
+	protected KeysUtils keys;
 	
 	public BasePage(EventFiringWebDriver driver) {
 		this.driver = driver;
+		keys = new KeysUtils(driver);
 	}
 	
 	public void acceptConfirmation()throws Exception{
@@ -84,6 +85,13 @@ public class BasePage /*implements Page*/ {
 		AbstractElement webElement = new AbstractElement(locator);
 		webElement.setDriver(driver);
 		return webElement;
+	}
+	
+	protected JSExecutor getJSExecutor(String locator){
+		JSExecutor jsExec = new JSExecutor(locator);
+		jsExec.setDriver(driver);
+		return jsExec;
+		
 	}
 
 	public void refresh() {
