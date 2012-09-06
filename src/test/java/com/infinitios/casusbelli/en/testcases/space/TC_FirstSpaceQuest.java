@@ -14,12 +14,15 @@ public class TC_FirstSpaceQuest extends TestCase {
 		HomePage homePage = new HomePage(driver);
 		homePage.verify();
 		homePage.login("usercas@mailinator.com", "password1");
+		homePage.changeLanguageTo("en");
 		DockPage dockPage = homePage.play();
 		SpacePage spacePage = dockPage.toSpace();
 		Thread.sleep(3000);
 //		spacePage.verify();
-		spacePage.accelerateTo100miles();
-		currentPage.verifyPrecenceOfMsg(/*"1/6 quest is done"*/"");//Implement me
+//		spacePage.accelerateTo100miles();
+		currentPage.verifyPrecenceOfMsg("You can zoom in or out the game screen with the ");//Implement me
+		spacePage.zoomTheSpace();
+		currentPage.verifyPrecenceOfMsg("Watch the borders of polygon.");
 		spacePage.goToTheFirstPoint();
 		spacePage.logOutFromSpace();
 		

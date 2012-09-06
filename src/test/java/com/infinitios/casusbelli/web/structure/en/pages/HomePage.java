@@ -64,4 +64,10 @@ public class HomePage extends BasePage{
 		
 	}
 
+
+	public void changeLanguageTo(String string) {
+		
+		
+	}
+
 }

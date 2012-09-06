@@ -12,7 +12,9 @@ public class SpacePage extends BasePage {
 	private JSExecutor spaceCanvas = getJSExecutor("#canvas");
 	
 	private OutputElement velocityIndicator = getOutputElement("//div[@data='velocity']");
-
+//	for scrolling
+	private JSExecutor zoomWrapper = getJSExecutor("div[class*='zoom-wrapper'] > div.body");//
+	
 	public SpacePage(EventFiringWebDriver driver) {
 		super(driver);
 		log.info("Space page is opened");
@@ -53,6 +55,13 @@ public class SpacePage extends BasePage {
 		
 		
 //		for(int i=0; )
+		
+	}
+
+	public void zoomTheSpace() throws Exception {
+		zoomWrapper.waitForElement();
+		assertThis("Zoom element on the left side is absent on Space page", zoomWrapper.isElementPresent());
+		zoomWrapper.clickAtCoordinates(2, 100);
 		
 	}
 }

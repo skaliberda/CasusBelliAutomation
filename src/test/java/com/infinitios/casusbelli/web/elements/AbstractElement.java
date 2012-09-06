@@ -91,29 +91,6 @@ public class AbstractElement  {
 		
 //		System.out.println("JS Executed!!!!");
 	}
-
-//	public void warmClick() {
-//		if (selenium.isElementPresent(elementLocator)) {
-//			selenium.mouseOver(elementLocator);
-//			selenium.mouseDown(elementLocator);
-//			selenium.mouseUp(elementLocator);
-//		}
-//	}
-//
-//	public void doubleClick() {
-//		selenium.doubleClick(elementLocator);
-//	}
-//
-//	public boolean isVisible() throws Exception{
-//		try {
-//
-//			return true;
-//		} catch (NoSuchElementException e) {
-//			System.out.println(e);
-//			return false;
-//		}
-//
-//	}
 	
 	public boolean isElementPresent() throws Exception {
 		try {
@@ -149,6 +126,12 @@ public class AbstractElement  {
 		Actions builder = new Actions(driver);
 		log.debug("Mouse moving to the element found By.xpath: " + elementLocator);
 		builder.moveToElement(driver.findElement(By.xpath(elementLocator))).build().perform();
+	}
+	
+	public void moveToElementAndClick (int x, int y){
+		Actions builder = new Actions(driver);
+		log.debug("Mouse moving to the element found By.xpath: " + elementLocator);
+		builder.moveToElement(driver.findElement(By.xpath(elementLocator)), x, y).click().build().perform();
 	}
 	
 	public void dragAndDrop(String targetLocator){
