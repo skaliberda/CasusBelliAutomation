@@ -67,7 +67,7 @@ public class SpacePage extends BasePage {
 			for(int i=0; i<20; i++){
 				int currentVelocity = Integer.parseInt(velocityIndicator.getTextValue().split(" ")[0]);
 				System.out.println("Current velocity = " + currentVelocity);
-				if(currentVelocity>400){
+				if(currentVelocity>300){
 					keys.pressSpace();
 					break;
 				}
@@ -95,7 +95,9 @@ public class SpacePage extends BasePage {
 
 	public void lookArround() {
 //	Hold left mouse button and move up/down, left/right to look around.
-		
+		spaceCanvas.mouseDownAtCoordinates(400, 400);
+		spaceCanvas.mouseMoveToCoordinates(200, 200);
+		spaceCanvas.mouseReleaseAtCoordinates(200, 200);
 	}
 
 	public void launchTheMissile() {

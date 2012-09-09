@@ -16,6 +16,11 @@ public class HomePage extends BasePage{
 //	Play button post login
 	private NavigationElement playButton = getNavigationElement("//a[@class='my-games button green']");
 	
+//	for language switching 
+	private String enActiveLocator = "//div[@class='language']/a[@class='active' and text()='EN']";
+	private String ruActiveLocator = "//div[@class='language']/a[@class='active' and text()='RU']";
+	private NavigationElement enLink = getNavigationElement("//div[@class='language']/a[text()='EN']");
+	private NavigationElement ruLink = getNavigationElement("//div[@class='language']/a[text()='RU']");
 	
 	
 //	********************* For Assertion ******************************
@@ -53,6 +58,18 @@ public class HomePage extends BasePage{
 		
 		
 	}
+	
+	public void switchToEnLanguage() throws Exception{
+		if(getElementCount(enActiveLocator)==0){
+			enLink.click();
+		}
+	}
+	
+	public void switchToRuLanguage() throws Exception{
+		if(getElementCount(ruActiveLocator)==0){
+			ruLink.click();
+		}
+	}
 
 
 	public DockPage play() throws Exception {
@@ -63,11 +80,4 @@ public class HomePage extends BasePage{
 		return new DockPage(driver) ;
 		
 	}
-
-
-	public void changeLanguageTo(String string) {
-		
-		
-	}
-
 }

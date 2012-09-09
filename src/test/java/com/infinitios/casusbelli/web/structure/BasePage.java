@@ -157,7 +157,7 @@ public class BasePage /*implements Page*/ {
 	}
 
 	public boolean waitForMessage(long time, String text) throws Exception {
-		return waitForMessage(time, 8, text);
+		return waitForMessage(time, 20, text);
 	}
 	
 	public synchronized boolean waitForMessage(long time, int timesToTry, String text) throws Exception {

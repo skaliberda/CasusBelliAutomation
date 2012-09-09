@@ -13,32 +13,32 @@ public class TC_FirstSpaceQuest extends TestCase {
 	public void test() throws Exception {
 		HomePage homePage = new HomePage(driver);
 		homePage.verify();
-		homePage.login("usercas@mailinator.com", "password1");
-		homePage.changeLanguageTo("en");
+		homePage.login("ayaa@mailinator.com", "password1");
+		homePage.switchToEnLanguage();
 		DockPage dockPage = homePage.play();
 		SpacePage spacePage = dockPage.toSpace();
-		Thread.sleep(3000);
+//		Thread.sleep(3000);
 //		spacePage.verify();
 //		First Tutorial Quest
 //		spacePage.accelerateTo100miles();
 //		currentPage.verifyPrecenceOfMsg("You can zoom in or out the game screen with the ");//Implement me
-		Thread.sleep(3000);
+//		Thread.sleep(3000);
 //		Second tutorial quest
 //		spacePage.zoomTheSpace();
 //		currentPage.verifyPrecenceOfMsg("Watch the borders of polygon.");
-		spacePage.continueTutorial();
-		currentPage.verifyPrecenceOfMsg("Your next aim is to fly through the checkpoint.");
-		spacePage.goToTheCheckPoint();
-		currentPage.verifyPrecenceOfMsg("Excellent! You've completed the task. Your reward is");
-		spacePage.continueTutorial();
+//		spacePage.continueTutorial();
+//		currentPage.verifyPrecenceOfMsg("Your next aim is to fly through the checkpoint.");
+//		spacePage.goToTheCheckPoint();
+//		currentPage.verifyPrecenceOfMsg("Excellent! You've completed the task. Your reward is");
+//		spacePage.continueTutorial();
 //		Third tutorial quest
-		currentPage.verifyPrecenceOfMsg("and move up/down, left/right to look around");
-		spacePage.lookArround();
-		spacePage.goToTheCheckPoint();
-		currentPage.verifyPrecenceOfMsg("the new area at polygon) to fly through the last checkpoint.");
-		spacePage.goToTheCheckPoint();
-		currentPage.verifyPrecenceOfMsg("You've completed the task.");
-		spacePage.continueTutorial();
+//		currentPage.verifyPrecenceOfMsg("and move up/down, left/right to look around");
+//		spacePage.lookArround();
+//		spacePage.goToTheCheckPoint();
+//		currentPage.verifyPrecenceOfMsg("the new area at polygon) to fly through the last checkpoint.");
+//		spacePage.goToTheCheckPoint();
+//		currentPage.verifyPrecenceOfMsg("You've completed the task.");
+//		spacePage.continueTutorial();
 //		Fourth tutorial
 		currentPage.verifyPrecenceOfMsg("It takes a few seconds to reload the weapons after each shot.");
 		spacePage.launchTheMissile();
