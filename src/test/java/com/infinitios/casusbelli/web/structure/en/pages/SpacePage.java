@@ -13,7 +13,17 @@ public class SpacePage extends BasePage {
 	
 	private OutputElement velocityIndicator = getOutputElement("//div[@data='velocity']");
 //	for scrolling
-	private JSExecutor zoomWrapper = getJSExecutor("div[class*='zoom-wrapper'] > div.body");//
+	private JSExecutor zoomWrapper = getJSExecutor("div.zoom-handle");//
+	
+//	for watching borders
+	private NavigationElement continueQuestButton = getNavigationElement("//div[text()='Continue']");
+	
+//	verify precence of enemy characteristics
+	private NavigationElement allCharacteristics = getNavigationElement("//canvas[@id='canvas-target']");
+	private OutputElement enemyShipName = getOutputElement("//div[@class='ship']/div[@class='name']");
+	
+//	go to theouter space
+	private NavigationElement outerSpaceButton = getNavigationElement("//div[contains(text(),'Go to Outer Space')]");
 	
 	public SpacePage(EventFiringWebDriver driver) {
 		super(driver);
@@ -49,19 +59,88 @@ public class SpacePage extends BasePage {
 		spaceLogOutButton.click();
 	}
 
-	public void goToTheFirstPoint() throws Exception {
+	public void goToTheCheckPoint() throws Exception {
 		velocityIndicator.waitForElement();
 		assertThis("Velocity indicator is absent on Space page", velocityIndicator.isElementPresent());
-		
+		spaceCanvas.clickAtCoordinates(spaceCanvas.getNearestCheckPointLeftCoordinate(), spaceCanvas.getNearestCheckPointTopCoordinate());
+//		while(spaceCanvas.getNearestCheckPointLeftCoordinate()>0||spaceCanvas.getNearestCheckPointTopCoordinate()>0){
+			for(int i=0; i<20; i++){
+				int currentVelocity = Integer.parseInt(velocityIndicator.getTextValue().split(" ")[0]);
+				System.out.println("Current velocity = " + currentVelocity);
+				if(currentVelocity>400){
+					keys.pressSpace();
+					break;
+				}
+				Thread.sleep(500);
+			}
+//		}
 		
 //		for(int i=0; )
 		
 	}
 
 	public void zoomTheSpace() throws Exception {
-		zoomWrapper.waitForElement();
-		assertThis("Zoom element on the left side is absent on Space page", zoomWrapper.isElementPresent());
-		zoomWrapper.clickAtCoordinates(2, 100);
+//		zoomWrapper.waitForElement();
+//		assertThis("Zoom element on the left side is absent on Space page", zoomWrapper.isElementPresent());
+		Thread.sleep(3000);
+		zoomWrapper.clickAtCoordinates(50, 0);
 		
+	}
+
+	public void continueTutorial() throws Exception {
+		continueQuestButton.waitForElement();
+		assertThis("Continue button on tutorial section is absent on Space page", continueQuestButton.isElementPresent());
+		continueQuestButton.click();
+	}
+
+	public void lookArround() {
+//	Hold left mouse button and move up/down, left/right to look around.
+		
+	}
+
+	public void launchTheMissile() {
+//		Press key 1 to launch the missile. It's flightpath is indicated by blue color
+		
+	}
+
+	public void turnTheShip() {
+//		Now you need to learn how to turn your ship. Press A key to turn counterclockwise or D key to turn clockwise.
+		
+	}
+
+	public void LaunchMissileOnTarget() {
+//		Launch the missile on target by pressing key 1. It's easier then in shooting range. Press A key to to turn counterclockwise or 
+//		D key to turn clockwise. Start the fire when I'll highlight the cross point of your missles and c
+		
+	}
+
+	public void seeEnemyCharacteristics() {
+//	Click this ship to see it's characteristics
+		
+		
+	}
+
+	public void verifyPrecenceOfEnemyCharacteristics() throws Exception {
+		allCharacteristics.waitForElement();
+		assertThis("Enemy characteristics is absent in the left bottom corner on space page", allCharacteristics.isElementPresent());
+		assertThis("Enemys name: " + enemyShipName.getTextValue() + "is not equals the expected: Scout A", enemyShipName.getTextValue().equals("Scout A"));
+		//Scout A
+		
+	}
+
+	public void turnTheShipToTheEnemy() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void fireOnEnemy() {
+//		verify two choices press button 1 or click on missile on right equipment section
+		
+	}
+
+	public void goToOuterSpace() throws Exception {
+		outerSpaceButton.waitForElement();
+		assertThis("Go to the Outer space button is absent on space pasge", outerSpaceButton.isElementPresent());
+		outerSpaceButton.click();
 	}
 }

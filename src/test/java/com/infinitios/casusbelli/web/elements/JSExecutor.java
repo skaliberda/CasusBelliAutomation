@@ -26,14 +26,14 @@ public class JSExecutor extends AbstractElement {
 	
 	public int getNearestCheckPointTopCoordinate(){
 		String getTopCoordinate = "return TestUtils.getNearestCheckpoint().y";
-		int topCoord = Integer.parseInt(executeJavascript(driver, getTopCoordinate).toString());
+		int topCoord = ((Number)executeJavascript(driver, getTopCoordinate)).intValue();
 		log.debug("Nearest checkpoint Top coordinate = " + topCoord);
 		return topCoord;
 	}
 	
 	public int getNearestCheckPointLeftCoordinate(){
 		String getLeftCoordinate = "return TestUtils.getNearestCheckpoint().x";
-		int leftCoord = Integer.parseInt(executeJavascript(driver, getLeftCoordinate).toString());
+		int leftCoord = ((Number)executeJavascript(driver, getLeftCoordinate)).intValue();
 		log.debug("Nearest checkpoint Left coordinate = " + leftCoord);
 		return leftCoord;
 	}
