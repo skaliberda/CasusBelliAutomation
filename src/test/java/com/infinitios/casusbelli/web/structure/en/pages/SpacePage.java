@@ -25,6 +25,8 @@ public class SpacePage extends BasePage {
 //	go to theouter space
 	private NavigationElement outerSpaceButton = getNavigationElement("//div[contains(text(),'Go to Outer Space')]");
 	
+//	launch a missile
+	private NavigationElement missileSlot = getNavigationElement("//div[contains(@class, 'rocket-launcher-1_i')]");
 	public SpacePage(EventFiringWebDriver driver) {
 		super(driver);
 		log.info("Space page is opened");
@@ -62,7 +64,7 @@ public class SpacePage extends BasePage {
 	public void goToTheCheckPoint() throws Exception {
 		velocityIndicator.waitForElement();
 		assertThis("Velocity indicator is absent on Space page", velocityIndicator.isElementPresent());
-		spaceCanvas.clickAtCoordinates(spaceCanvas.getNearestCheckPointLeftCoordinate(), spaceCanvas.getNearestCheckPointTopCoordinate());
+		spaceCanvas.clickAtCoordinates(spaceCanvas.getNearestCheckPointXCoordinate(), spaceCanvas.getNearestCheckPointYCoordinate());
 //		while(spaceCanvas.getNearestCheckPointLeftCoordinate()>0||spaceCanvas.getNearestCheckPointTopCoordinate()>0){
 			for(int i=0; i<20; i++){
 				int currentVelocity = Integer.parseInt(velocityIndicator.getTextValue().split(" ")[0]);
@@ -100,26 +102,43 @@ public class SpacePage extends BasePage {
 		spaceCanvas.mouseReleaseAtCoordinates(200, 200);
 	}
 
-	public void launchTheMissile() {
+	public void launchTheMissileByPressKey1() throws Exception {
 //		Press key 1 to launch the missile. It's flightpath is indicated by blue color
-		
+		keys.pressSpecificKey("1");
+	}
+	
+	public void launchTheMissileByClickingOnSlot() throws Exception{
+		missileSlot.waitForElement();
+		assertThis("First slot with missile is absent on Space page", missileSlot.isElementPresent());
+		missileSlot.mouseClick();
 	}
 
-	public void turnTheShip() {
+	public void turnTheShip() throws InterruptedException {
 //		Now you need to learn how to turn your ship. Press A key to turn counterclockwise or D key to turn clockwise.
-		
+//		keys.downSpecificKey("A");
+//		Thread.sleep(3000);
+//		keys.upSpecificKey("A");
+//		keys.downSpecificKey("D");
+//		Thread.sleep(3000);
+//		keys.upSpecificKey("D");
 	}
 
-	public void LaunchMissileOnTarget() {
+	public void LaunchMissileOnTarget() throws Exception {
 //		Launch the missile on target by pressing key 1. It's easier then in shooting range. Press A key to to turn counterclockwise or 
 //		D key to turn clockwise. Start the fire when I'll highlight the cross point of your missles and c
-		
+		while(true/*spaceCanvas.getAiming()==0*/){
+			if(spaceCanvas.getAiming()!=0){
+				this.launchTheMissileByPressKey1();
+				break;
+			}
+			Thread.sleep(500);
+		}
 	}
 
 	public void seeEnemyCharacteristics() {
 //	Click this ship to see it's characteristics
-		
-		
+//		TestUtils.click('#canvas', TestUtils.getNearestEnemy().x, TestUtils.getNearestEnemy().y)
+		spaceCanvas.clickAtCoordinates(spaceCanvas.getNearestEnemyXCoordinate(), spaceCanvas.getNearestEnemyYCoordinate());
 	}
 
 	public void verifyPrecenceOfEnemyCharacteristics() throws Exception {

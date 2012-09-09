@@ -41,17 +41,39 @@ public class JSExecutor extends AbstractElement {
 		log.debug("Mouse move to top coordiane: " + y + " and left coordinate: " + x + ".");
 	}
 	
-	public int getNearestCheckPointTopCoordinate(){
-		String getTopCoordinate = "return TestUtils.getNearestCheckpoint().y";
-		int topCoord = ((Number)executeJavascript(driver, getTopCoordinate)).intValue();
-		log.debug("Nearest checkpoint Top coordinate = " + topCoord);
-		return topCoord;
+	public double getAiming(){
+		String getAimingJS = "return TestUtils.aiming";
+		double aim = ((Number)executeJavascript(driver, getAimingJS)).doubleValue();
+		log.debug("Current aim state = " + aim);
+		return aim;
+	}
+//	Get nearest checkpoint coordinates
+	public int getNearestCheckPointYCoordinate(){
+		String getYCoordinateJS = "return TestUtils.getNearestCheckpoint().y";
+		int coordY = ((Number)executeJavascript(driver, getYCoordinateJS)).intValue();
+		log.debug("Nearest checkpoint Y coordinate = " + coordY);
+		return coordY;
 	}
 	
-	public int getNearestCheckPointLeftCoordinate(){
-		String getLeftCoordinate = "return TestUtils.getNearestCheckpoint().x";
-		int leftCoord = ((Number)executeJavascript(driver, getLeftCoordinate)).intValue();
-		log.debug("Nearest checkpoint Left coordinate = " + leftCoord);
-		return leftCoord;
+	public int getNearestCheckPointXCoordinate(){
+		String getXCoordinateJS = "return TestUtils.getNearestCheckpoint().x";
+		int coordX = ((Number)executeJavascript(driver, getXCoordinateJS)).intValue();
+		log.debug("Nearest checkpoint X coordinate = " + coordX);
+		return coordX;
+	}
+	
+//	Get nearest enemy coordinates
+	public int getNearestEnemyYCoordinate(){
+		String getYCoordinateJS = "return TestUtils.getNearestEnemy().y";
+		int coordY = ((Number)executeJavascript(driver, getYCoordinateJS)).intValue();
+		log.debug("Nearest enemy Y coordinate = " + coordY);
+		return coordY;
+	}
+	
+	public int getNearestEnemyXCoordinate(){
+		String getXCoordinateJS = "return TestUtils.getNearestEnemy().x";
+		int coordX = ((Number)executeJavascript(driver, getXCoordinateJS)).intValue();
+		log.debug("Nearest enemy X coordinate = " + coordX);
+		return coordX;
 	}
 }

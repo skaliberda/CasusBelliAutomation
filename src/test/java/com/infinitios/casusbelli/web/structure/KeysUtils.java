@@ -21,4 +21,24 @@ public class KeysUtils {
 		builder.sendKeys(Keys.SPACE).build().perform();
 		log.debug("Space button is pressed");
 	}
+	
+	public void pressSpecificKey(String specificKey){
+		Actions builder = new Actions(driver);
+		builder.sendKeys(Keys.chord(specificKey)).build().perform();
+		log.debug("Button " + specificKey + " is pressed");
+	}
+
+	public void downSpecificKey(String specificKey) {
+		Actions builder = new Actions(driver);
+//		builder.k
+//		builder.keyDown(Keys.specificKey)).build().perform();
+		log.debug("Button " + specificKey + " is down");
+	}
+	
+	public void upSpecificKey(String specificKey) {
+		Actions builder = new Actions(driver);
+		builder.keyUp(Keys.valueOf(specificKey)).build().perform();
+		log.debug("Button " + specificKey + " is up");
+		
+	}
 }
