@@ -51,29 +51,111 @@ public class JSExecutor extends AbstractElement {
 	public int getNearestCheckPointYCoordinate(){
 		String getYCoordinateJS = "return TestUtils.getNearestCheckpoint().y";
 		int coordY = ((Number)executeJavascript(driver, getYCoordinateJS)).intValue();
-		log.debug("Nearest checkpoint Y coordinate = " + coordY);
+//		log.debug("Nearest checkpoint Y coordinate = " + coordY);
 		return coordY;
 	}
 	
 	public int getNearestCheckPointXCoordinate(){
 		String getXCoordinateJS = "return TestUtils.getNearestCheckpoint().x";
 		int coordX = ((Number)executeJavascript(driver, getXCoordinateJS)).intValue();
-		log.debug("Nearest checkpoint X coordinate = " + coordX);
+//		log.debug("Nearest checkpoint X coordinate = " + coordX);
 		return coordX;
+	}
+	
+	public boolean isCheckPointPresent(){
+		String checkPoint = "return TestUtils.getNearestCheckpoint()";
+		boolean checkPointBool /*= Boolean.parseBoolean(String.valueOf(executeJavascript(driver, checkPoint)))*/;
+		if(String.valueOf(executeJavascript(driver, checkPoint)).contains("function")){
+			checkPointBool = true;
+		}else{
+			checkPointBool = false;
+		}
+//		System.out.println(String.valueOf(executeJavascript(driver, checkPoint)));
+//		log.debug("Value"+ String.valueOf(executeJavascript(driver, checkPoint)));
+		log.debug("Checkpoin present = " + checkPointBool);
+		return checkPointBool;
 	}
 	
 //	Get nearest enemy coordinates
 	public int getNearestEnemyYCoordinate(){
 		String getYCoordinateJS = "return TestUtils.getNearestEnemy().y";
 		int coordY = ((Number)executeJavascript(driver, getYCoordinateJS)).intValue();
-		log.debug("Nearest enemy Y coordinate = " + coordY);
+//		log.debug("Nearest enemy Y coordinate = " + coordY);
 		return coordY;
 	}
 	
 	public int getNearestEnemyXCoordinate(){
 		String getXCoordinateJS = "return TestUtils.getNearestEnemy().x";
 		int coordX = ((Number)executeJavascript(driver, getXCoordinateJS)).intValue();
-		log.debug("Nearest enemy X coordinate = " + coordX);
+//		log.debug("Nearest enemy X coordinate = " + coordX);
+		return coordX;
+	}
+	
+//	Working with zoom 
+	public void zoomHalfTheSpace(){
+		String zoomJS = "(new Quest()).zoom(0.5)";
+		executeJavascript(driver, zoomJS);
+		log.debug("Space is zoomed by a half");	
+	}
+	
+	public void zoomMinimumTheSpace(){
+		String zoomJS = "(new Quest()).zoom(0)";
+		executeJavascript(driver, zoomJS);
+		log.debug("Space is zoomed by minimum");
+	}
+	
+	public void zoomMaximumTheSpace(){
+		String zoomJS = "(new Quest()).zoom(1)";
+		executeJavascript(driver, zoomJS);
+		log.debug("Space is zoomed by maximum");		
+	}
+	
+//	Working with turning the ship 
+	public void turnShipClockwise(){
+		String turnShipJS = "UiController.keyHandlerRotateCw(me)";
+		executeJavascript(driver, turnShipJS);
+		log.debug("Ship was turned clockwise");		
+	}
+	
+	public void turnShipCounterClockwise(){
+		String turnShipJS = "UiController.keyHandlerRotateCcw(me)";
+		executeJavascript(driver, turnShipJS);
+		log.debug("Ship was turned Conter clockwise");
+	}
+	
+	public void stopRotateShip(){
+		String turnShipJS = "UiController.keyHandlerRotateStop(me)";
+		executeJavascript(driver, turnShipJS);
+		log.debug("Ship rotation was stopped");
+	}	
+	
+//	Get ship coordinates
+	public int getShipYCoordinate(){
+		String getYCoordinateJS = "return me.getPosition().toReal().y";
+		int coordY = ((Number)executeJavascript(driver, getYCoordinateJS)).intValue();
+		log.debug("Ship Y coordinate = " + coordY);
+		return coordY;
+	}
+	
+	public int getShipXCoordinate(){
+		String getXCoordinateJS = "return me.getPosition().toReal().x";
+		int coordX = ((Number)executeJavascript(driver, getXCoordinateJS)).intValue();
+		log.debug("Ship X coordinate = " + coordX);
+		return coordX;
+	}
+	
+//	Get stop ship coordinates
+	public int getShipStopYCoordinate(){
+		String getYCoordinateJS = "return me.navigator.path.stop.toReal().y";
+		int coordY = ((Number)executeJavascript(driver, getYCoordinateJS)).intValue();
+		log.debug("Ship stop Y coordinate = " + coordY);
+		return coordY;
+	}
+	
+	public int getShipStopXCoordinate(){
+		String getXCoordinateJS = "return me.navigator.path.stop.toReal().x";
+		int coordX = ((Number)executeJavascript(driver, getXCoordinateJS)).intValue();
+		log.debug("Ship stop X coordinate = " + coordX);
 		return coordX;
 	}
 }

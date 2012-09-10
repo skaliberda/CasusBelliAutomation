@@ -140,8 +140,8 @@ public class BasePage /*implements Page*/ {
 	
 	public void verifyPrecenceOfMsg(String verMsg) throws Exception{
 		waitForMessage(verMsg);
-		assertThis("Error message \"" + verMsg + "\" is absent on current page.", isTextPresent(verMsg));
-		log.debug("Error message \"" + verMsg + "\" is present on current page.");
+		assertThis("Message \"" + verMsg + "\" is absent on current page.", isTextPresent(verMsg));
+		log.debug("Message \"" + verMsg + "\" is present on current page.");
 	}
 	
 //	************************ Assertion ************************

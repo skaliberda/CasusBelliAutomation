@@ -13,7 +13,7 @@ public class TC_FirstSpaceQuest extends TestCase {
 	public void test() throws Exception {
 		HomePage homePage = new HomePage(driver);
 		homePage.verify();
-		homePage.login("ayaa@mailinator.com", "password1");
+		homePage.login("rxru@mailinator.com", "password1");
 		homePage.switchToEnLanguage();
 		DockPage dockPage = homePage.play();
 		SpacePage spacePage = dockPage.toSpace();
@@ -21,9 +21,9 @@ public class TC_FirstSpaceQuest extends TestCase {
 //		First Tutorial Quest
 //		currentPage.verifyPrecenceOfMsg("Your aim is to achieve");
 //		spacePage.accelerateTo100miles();
-//		currentPage.verifyPrecenceOfMsg("You can zoom in or out the game screen with the ");//Implement me
 //		Second tutorial quest
-//		spacePage.zoomTheSpace();//not implemented
+//		currentPage.verifyPrecenceOfMsg("You can zoom in or out the game screen with the ");
+//		spacePage.zoomTheSpace();
 //		currentPage.verifyPrecenceOfMsg("Watch the borders of polygon.");
 //		spacePage.continueTutorial();
 //		currentPage.verifyPrecenceOfMsg("Your next aim is to fly through the checkpoint.");
@@ -33,18 +33,18 @@ public class TC_FirstSpaceQuest extends TestCase {
 //		Third tutorial quest
 //		currentPage.verifyPrecenceOfMsg("and move up/down, left/right to look around");
 //		spacePage.lookArround();
-//		spacePage.goToTheCheckPoint();//need stop X coordinates
+//		spacePage.goToTheCheckPoint();
 //		currentPage.verifyPrecenceOfMsg("the new area at polygon) to fly through the last checkpoint.");
-//		spacePage.goToTheCheckPoint();//need stop X coordinates
+//		spacePage.goToTheCheckPoint();
 //		currentPage.verifyPrecenceOfMsg("You've completed the task.");
 //		spacePage.continueTutorial();
 //		Fourth tutorial
 //		currentPage.verifyPrecenceOfMsg("to launch the missile. It's flightpath is indicated by");
 //		spacePage.launchTheMissileByPressKey1();
 //		currentPage.verifyPrecenceOfMsg("Now you need to learn how to turn your ship.");
-//		spacePage.turnTheShip();//not implemented
+//		spacePage.turnTheShip();
 //		currentPage.verifyPrecenceOfMsg("Launch the missile on target by pressing key");
-//		spacePage.LaunchMissileOnTarget();//need turn the ship function
+//		spacePage.LaunchMissileOnTarget();
 //		currentPage.verifyPrecenceOfMsg("Check the ammunition left. You can't restock the weapons in space.");
 //		spacePage.LaunchMissileOnTarget();
 //		fifth tutorial 

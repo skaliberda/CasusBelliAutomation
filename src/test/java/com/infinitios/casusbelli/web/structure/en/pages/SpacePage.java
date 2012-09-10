@@ -13,7 +13,8 @@ public class SpacePage extends BasePage {
 	
 	private OutputElement velocityIndicator = getOutputElement("//div[@data='velocity']");
 //	for scrolling
-	private JSExecutor zoomWrapper = getJSExecutor("div.zoom-handle");//
+	private JSExecutor zoomWrapper = getJSExecutor("");//
+	private JSExecutor ship = getJSExecutor("");
 	
 //	for watching borders
 	private NavigationElement continueQuestButton = getNavigationElement("//div[text()='Continue']");
@@ -39,20 +40,16 @@ public class SpacePage extends BasePage {
 	public void accelerateTo100miles() throws Exception {
 		velocityIndicator.waitForElement();
 		assertThis("Velocity indicator is absent on Space page", velocityIndicator.isElementPresent());
-//		Thread.sleep(3000);
-		spaceCanvas.clickAtCoordinates(100, 100);
-		Thread.sleep(1000);
-		for(int i=0; i<20; i++){
-			int currentVelocity = Integer.parseInt(velocityIndicator.getTextValue().split(" ")[0]);
-			System.out.println("Current velocity = " + currentVelocity);
+		int currentVelocity = 0;
+		spaceCanvas.clickAtCoordinates(200, 200);	
+		do{
+			Thread.sleep(500);
+			currentVelocity = Integer.parseInt(velocityIndicator.getTextValue().split(" ")[0]);
 			if(currentVelocity>100){
 				keys.pressSpace();
 				break;
-			}
-			Thread.sleep(500);
-		}
-		Thread.sleep(3000);
-		
+			}			
+		}while(currentVelocity<100);
 	}
 
 	public void logOutFromSpace() throws Exception {
@@ -64,28 +61,37 @@ public class SpacePage extends BasePage {
 	public void goToTheCheckPoint() throws Exception {
 		velocityIndicator.waitForElement();
 		assertThis("Velocity indicator is absent on Space page", velocityIndicator.isElementPresent());
-		spaceCanvas.clickAtCoordinates(spaceCanvas.getNearestCheckPointXCoordinate(), spaceCanvas.getNearestCheckPointYCoordinate());
-//		while(spaceCanvas.getNearestCheckPointLeftCoordinate()>0||spaceCanvas.getNearestCheckPointTopCoordinate()>0){
-			for(int i=0; i<20; i++){
-				int currentVelocity = Integer.parseInt(velocityIndicator.getTextValue().split(" ")[0]);
-				System.out.println("Current velocity = " + currentVelocity);
-				if(currentVelocity>300){
+		int neearestCheckPointCoorX = spaceCanvas.getNearestCheckPointXCoordinate();
+		int neearestCheckPointCoorY = spaceCanvas.getNearestCheckPointYCoordinate();
+		if(spaceCanvas.isCheckPointPresent()){
+			spaceCanvas.clickAtCoordinates(neearestCheckPointCoorX, neearestCheckPointCoorY);
+		}else{
+			assertThis("Checkpoint is absent on Space page", spaceCanvas.isCheckPointPresent());
+		}
+		do{
+			if(spaceCanvas.isCheckPointPresent()){
+				if(neearestCheckPointCoorX==spaceCanvas.getNearestCheckPointXCoordinate()||neearestCheckPointCoorY==spaceCanvas.getNearestCheckPointYCoordinate()){
+					if(spaceCanvas.getNearestCheckPointXCoordinate()==ship.getShipStopXCoordinate()||spaceCanvas.getNearestCheckPointYCoordinate()==ship.getShipStopYCoordinate()){
+						keys.pressSpace();
+						break;
+					}
+				}else{
 					keys.pressSpace();
 					break;
 				}
-				Thread.sleep(500);
+			}else{
+				keys.pressSpace();
+				break;
 			}
-//		}
-		
-//		for(int i=0; )
-		
+			
+		}
+		while(spaceCanvas.isCheckPointPresent());
 	}
 
 	public void zoomTheSpace() throws Exception {
 //		zoomWrapper.waitForElement();
 //		assertThis("Zoom element on the left side is absent on Space page", zoomWrapper.isElementPresent());
-		Thread.sleep(3000);
-		zoomWrapper.clickAtCoordinates(50, 0);
+		zoomWrapper.zoomHalfTheSpace();
 		
 	}
 
@@ -115,9 +121,9 @@ public class SpacePage extends BasePage {
 
 	public void turnTheShip() throws InterruptedException {
 //		Now you need to learn how to turn your ship. Press A key to turn counterclockwise or D key to turn clockwise.
-//		keys.downSpecificKey("A");
-//		Thread.sleep(3000);
-//		keys.upSpecificKey("A");
+		ship.turnShipClockwise();
+		Thread.sleep(4000);
+		ship.stopRotateShip();
 //		keys.downSpecificKey("D");
 //		Thread.sleep(3000);
 //		keys.upSpecificKey("D");
@@ -126,13 +132,18 @@ public class SpacePage extends BasePage {
 	public void LaunchMissileOnTarget() throws Exception {
 //		Launch the missile on target by pressing key 1. It's easier then in shooting range. Press A key to to turn counterclockwise or 
 //		D key to turn clockwise. Start the fire when I'll highlight the cross point of your missles and c
-		while(true/*spaceCanvas.getAiming()==0*/){
-			if(spaceCanvas.getAiming()!=0){
-				this.launchTheMissileByPressKey1();
-				break;
-			}
-			Thread.sleep(500);
-		}
+		do{
+//			Thread.sleep(500);
+			ship.turnShipClockwise();
+//			if(ship.getAiming()!=0){
+////				ship.stopRotateShip();
+//				this.launchTheMissileByPressKey1();
+//				break;
+//			}
+			
+		}while(ship.getAiming()==0);
+		this.launchTheMissileByPressKey1();
+		ship.stopRotateShip();
 	}
 
 	public void seeEnemyCharacteristics() {
@@ -150,7 +161,7 @@ public class SpacePage extends BasePage {
 	}
 
 	public void turnTheShipToTheEnemy() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
