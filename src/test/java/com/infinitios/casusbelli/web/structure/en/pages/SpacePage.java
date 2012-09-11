@@ -156,18 +156,27 @@ public class SpacePage extends BasePage {
 		allCharacteristics.waitForElement();
 		assertThis("Enemy characteristics is absent in the left bottom corner on space page", allCharacteristics.isElementPresent());
 		assertThis("Enemys name: " + enemyShipName.getTextValue() + "is not equals the expected: Scout A", enemyShipName.getTextValue().equals("Scout A"));
-		//Scout A
-		
+
 	}
 
 	public void turnTheShipToTheEnemy() {
-		
+		ship.turnShipClockwise();
+		while(ship.getAiming()==0){
+			System.out.println("Ship rounded");
+		}
+		ship.stopRotateShip();
 		
 	}
 
-	public void fireOnEnemy() {
+	public void fireEnemy() throws Exception {
 //		verify two choices press button 1 or click on missile on right equipment section
-		
+//		implement with possibility to check if ship exists and then fire on the ship
+		ship.turnShipClockwise();
+		while(ship.getAiming()==0){
+			System.out.println("Looking for ship");
+		}
+		this.launchTheMissileByClickingOnSlot();
+		ship.stopRotateShip();
 	}
 
 	public void goToOuterSpace() throws Exception {
