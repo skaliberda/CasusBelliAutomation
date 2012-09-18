@@ -49,14 +49,14 @@ public class JSExecutor extends AbstractElement {
 	}
 //	Get nearest checkpoint coordinates
 	public int getNearestCheckPointYCoordinate(){
-		String getYCoordinateJS = "return TestUtils.getNearestCheckpoint().y";
+		String getYCoordinateJS = "var y = TestUtils.getNearestCheckpoint().y; if(typeof y =='undefined'){y=0}; return y; ";
 		int coordY = ((Number)executeJavascript(driver, getYCoordinateJS)).intValue();
 //		log.debug("Nearest checkpoint Y coordinate = " + coordY);
 		return coordY;
 	}
 	
 	public int getNearestCheckPointXCoordinate(){
-		String getXCoordinateJS = "return TestUtils.getNearestCheckpoint().x";
+		String getXCoordinateJS = "var x = TestUtils.getNearestCheckpoint().x; if(typeof x =='undefined'){x=0}; return x; ";
 		int coordX = ((Number)executeJavascript(driver, getXCoordinateJS)).intValue();
 //		log.debug("Nearest checkpoint X coordinate = " + coordX);
 		return coordX;
@@ -78,17 +78,31 @@ public class JSExecutor extends AbstractElement {
 	
 //	Get nearest enemy coordinates
 	public int getNearestEnemyYCoordinate(){
-		String getYCoordinateJS = "return TestUtils.getNearestEnemy().y";
+		String getYCoordinateJS = "var y = TestUtils.getNearestEnemy().y; if(typeof y =='undefined'){y=0}; return y; "; 
 		int coordY = ((Number)executeJavascript(driver, getYCoordinateJS)).intValue();
 //		log.debug("Nearest enemy Y coordinate = " + coordY);
 		return coordY;
 	}
 	
 	public int getNearestEnemyXCoordinate(){
-		String getXCoordinateJS = "return TestUtils.getNearestEnemy().x";
+		String getXCoordinateJS = "var x = TestUtils.getNearestEnemy().x; if(typeof x =='undefined'){x=0}; return x;";
 		int coordX = ((Number)executeJavascript(driver, getXCoordinateJS)).intValue();
 //		log.debug("Nearest enemy X coordinate = " + coordX);
 		return coordX;
+	}
+	
+	public boolean isEnemyPresent(){
+		String enemy = "return TestUtils.getNearestEnemy()";
+		boolean enemyBool /*= Boolean.parseBoolean(String.valueOf(executeJavascript(driver, checkPoint)))*/;
+		if(String.valueOf(executeJavascript(driver, enemy)).contains("function")){
+			enemyBool = true;
+		}else{
+			enemyBool = false;
+		}
+//		System.out.println(String.valueOf(executeJavascript(driver, checkPoint)));
+//		log.debug("Value"+ String.valueOf(executeJavascript(driver, checkPoint)));
+		log.debug("Checkpoin present = " + enemyBool);
+		return enemyBool;
 	}
 	
 //	Working with zoom 

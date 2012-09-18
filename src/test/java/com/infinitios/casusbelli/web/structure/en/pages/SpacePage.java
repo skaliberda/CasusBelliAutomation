@@ -43,13 +43,14 @@ public class SpacePage extends BasePage {
 		int currentVelocity = 0;
 		spaceCanvas.clickAtCoordinates(200, 200);	
 		do{
-			Thread.sleep(500);
+			Thread.sleep(100);
 			currentVelocity = Integer.parseInt(velocityIndicator.getTextValue().split(" ")[0]);
-			if(currentVelocity>100){
-				keys.pressSpace();
-				break;
-			}			
+//			if(currentVelocity>100){
+//				keys.pressSpace();
+//				break;
+//			}			
 		}while(currentVelocity<100);
+		keys.pressSpace();
 	}
 
 	public void logOutFromSpace() throws Exception {
@@ -69,7 +70,7 @@ public class SpacePage extends BasePage {
 			assertThis("Checkpoint is absent on Space page", spaceCanvas.isCheckPointPresent());
 		}
 		do{
-			if(spaceCanvas.isCheckPointPresent()){
+//			if(spaceCanvas.isCheckPointPresent()){
 				if(neearestCheckPointCoorX==spaceCanvas.getNearestCheckPointXCoordinate()||neearestCheckPointCoorY==spaceCanvas.getNearestCheckPointYCoordinate()){
 					if(spaceCanvas.getNearestCheckPointXCoordinate()==ship.getShipStopXCoordinate()||spaceCanvas.getNearestCheckPointYCoordinate()==ship.getShipStopYCoordinate()){
 						keys.pressSpace();
@@ -79,13 +80,13 @@ public class SpacePage extends BasePage {
 					keys.pressSpace();
 					break;
 				}
-			}else{
-				keys.pressSpace();
-				break;
-			}
-			
+//			}else{
+//				keys.pressSpace();
+//				break;
+//			}
 		}
 		while(spaceCanvas.isCheckPointPresent());
+		keys.pressSpace();
 	}
 
 	public void zoomTheSpace() throws Exception {
@@ -132,18 +133,19 @@ public class SpacePage extends BasePage {
 	public void LaunchMissileOnTarget() throws Exception {
 //		Launch the missile on target by pressing key 1. It's easier then in shooting range. Press A key to to turn counterclockwise or 
 //		D key to turn clockwise. Start the fire when I'll highlight the cross point of your missles and c
+		ship.turnShipClockwise();
 		do{
 //			Thread.sleep(500);
-			ship.turnShipClockwise();
-//			if(ship.getAiming()!=0){
-////				ship.stopRotateShip();
-//				this.launchTheMissileByPressKey1();
-//				break;
-//			}
 			
-		}while(ship.getAiming()==0);
-		this.launchTheMissileByPressKey1();
+			if(ship.getAiming()!=0){
+//				ship.stopRotateShip();
+				this.launchTheMissileByPressKey1();
+				break;
+			}
+			
+		}while(spaceCanvas.isCheckPointPresent());
 		ship.stopRotateShip();
+		this.launchTheMissileByPressKey1();
 	}
 
 	public void seeEnemyCharacteristics() {
@@ -162,21 +164,27 @@ public class SpacePage extends BasePage {
 	public void turnTheShipToTheEnemy() {
 		ship.turnShipClockwise();
 		while(ship.getAiming()==0){
-			System.out.println("Ship rounded");
+//			System.out.println("Ship rounded");
 		}
 		ship.stopRotateShip();
 		
 	}
 
-	public void fireEnemy() throws Exception {
+	public void killEnemy() throws Exception {
 //		verify two choices press button 1 or click on missile on right equipment section
 //		implement with possibility to check if ship exists and then fire on the ship
-		ship.turnShipClockwise();
-		while(ship.getAiming()==0){
-			System.out.println("Looking for ship");
-		}
-		this.launchTheMissileByClickingOnSlot();
+		do{
+//			Thread.sleep(500);
+			ship.turnShipClockwise();
+			if(ship.getAiming()!=0){
+				ship.stopRotateShip();
+				this.launchTheMissileByPressKey1();
+//				break;
+			}
+			
+		}while(spaceCanvas.isEnemyPresent());
 		ship.stopRotateShip();
+		this.launchTheMissileByPressKey1();
 	}
 
 	public void goToOuterSpace() throws Exception {
