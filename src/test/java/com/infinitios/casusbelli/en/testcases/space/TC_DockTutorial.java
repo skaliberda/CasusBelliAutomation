@@ -1,4 +1,4 @@
-package com.infinitios.casusbelli.en.testcases.demo;
+package com.infinitios.casusbelli.en.testcases.space;
 
 import org.testng.annotations.Test;
 
@@ -10,7 +10,7 @@ import com.infinitios.casusbelli.web.structure.en.pages.DockPage;
 import com.infinitios.casusbelli.web.structure.en.pages.HomePage;
 import com.infinitios.casusbelli.web.structure.en.pages.RegisterPage;
 
-public class TC_Demo extends TestCase {
+public class TC_DockTutorial extends TestCase {
 	
 //	@Test(groups = { "smoke" })
 //	@Test(groups = { "dev" })

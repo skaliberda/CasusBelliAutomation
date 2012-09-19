@@ -13,7 +13,7 @@ public class TC_FirstSpaceQuest extends TestCase {
 	public void test() throws Exception {
 		HomePage homePage = new HomePage(driver);
 		homePage.verify();
-		homePage.login("rcwd@mailinator.com", "password1");
+		homePage.login("kzqivj@mailinator.com", "password1");
 		homePage.switchToEnLanguage();
 		DockPage dockPage = homePage.play();
 		SpacePage spacePage = dockPage.toSpace();
@@ -56,15 +56,12 @@ public class TC_FirstSpaceQuest extends TestCase {
 		currentPage.verifyPrecenceOfMsg("To start fire turn your ship towards the enemy");
 		spacePage.turnTheShipToTheEnemy();
 		currentPage.verifyPrecenceOfMsg("Start the fire when I'll highlight the cross point of your missiles and enemy's ship flightpath.");
-		spacePage.killEnemy();//not implemented
-//		currentPage.verifyPrecenceOfMsg("You are attacked! Here you can see the condition of your ship.");
-//		spacePage.killEnemy();//not implemented
-//		currentPage.verifyPrecenceOfMsg("You are attacked! Here you can see the condition of your ship.");
-//		spacePage.killEnemy();//not implemented
+		spacePage.killEnemy();
 		currentPage.verifyPrecenceOfMsg("All Clear! You destroyed it.");
 		spacePage.continueTutorial();
 		currentPage.verifyPrecenceOfMsg("We've got visitor here. Destroy him.");
-		spacePage.killEnemy();//not implemented
+		spacePage.seeEnemyCharacteristics();
+		spacePage.killEnemy();
 //		spacePage.killEnemy();//not implemented
 		currentPage.verifyPrecenceOfMsg("You've completed the last task.");
 		spacePage.goToOuterSpace();

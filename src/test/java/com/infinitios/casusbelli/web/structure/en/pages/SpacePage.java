@@ -8,7 +8,7 @@ import com.infinitios.casusbelli.web.elements.OutputElement;
 import com.infinitios.casusbelli.web.structure.BasePage;
 
 public class SpacePage extends BasePage {
-	private NavigationElement spaceLogOutButton = getNavigationElement("//div[@class='exit float-left tooltip']");
+	private NavigationElement spaceLogOutButton = getNavigationElement("//div[contains(@class,'exit float-left tooltip')]");
 	private JSExecutor spaceCanvas = getJSExecutor("#canvas");
 	
 	private OutputElement velocityIndicator = getOutputElement("//div[@data='velocity']");
@@ -62,6 +62,7 @@ public class SpacePage extends BasePage {
 	public void goToTheCheckPoint() throws Exception {
 		velocityIndicator.waitForElement();
 		assertThis("Velocity indicator is absent on Space page", velocityIndicator.isElementPresent());
+		int currentVelocity = 0;
 		int neearestCheckPointCoorX = spaceCanvas.getNearestCheckPointXCoordinate();
 		int neearestCheckPointCoorY = spaceCanvas.getNearestCheckPointYCoordinate();
 		if(spaceCanvas.isCheckPointPresent()){
@@ -70,7 +71,7 @@ public class SpacePage extends BasePage {
 			assertThis("Checkpoint is absent on Space page", spaceCanvas.isCheckPointPresent());
 		}
 		do{
-//			if(spaceCanvas.isCheckPointPresent()){
+			if(spaceCanvas.isCheckPointPresent()){
 				if(neearestCheckPointCoorX==spaceCanvas.getNearestCheckPointXCoordinate()||neearestCheckPointCoorY==spaceCanvas.getNearestCheckPointYCoordinate()){
 					if(spaceCanvas.getNearestCheckPointXCoordinate()==ship.getShipStopXCoordinate()||spaceCanvas.getNearestCheckPointYCoordinate()==ship.getShipStopYCoordinate()){
 						keys.pressSpace();
@@ -80,13 +81,21 @@ public class SpacePage extends BasePage {
 					keys.pressSpace();
 					break;
 				}
-//			}else{
-//				keys.pressSpace();
-//				break;
-//			}
+			}else{
+				keys.pressSpace();
+				break;
+			}
 		}
 		while(spaceCanvas.isCheckPointPresent());
 		keys.pressSpace();
+		do{
+			Thread.sleep(100);
+			currentVelocity = Integer.parseInt(velocityIndicator.getTextValue().split(" ")[0]);
+//			if(currentVelocity>100){
+//				keys.pressSpace();
+//				break;
+//			}			
+		}while(currentVelocity>10);
 	}
 
 	public void zoomTheSpace() throws Exception {
