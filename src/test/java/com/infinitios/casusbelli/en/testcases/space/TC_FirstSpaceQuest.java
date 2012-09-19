@@ -9,7 +9,7 @@ import com.infinitios.casusbelli.web.structure.en.pages.SpacePage;
 
 public class TC_FirstSpaceQuest extends TestCase {
 
-	@Test(groups = { "dev" })
+//	@Test(groups = { "dev" })
 	public void test() throws Exception {
 		HomePage homePage = new HomePage(driver);
 		homePage.verify();
