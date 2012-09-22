@@ -13,33 +13,30 @@ public class TC_FirstSpaceQuest extends TestCase {
 	public void test() throws Exception {
 		HomePage homePage = new HomePage(driver);
 		homePage.verify();
-		homePage.login("kzqivj@mailinator.com", "password1");
+		homePage.login("fuihjmrxb@mailinator.com", "password1");
 		homePage.switchToEnLanguage();
 		DockPage dockPage = homePage.play();
+		currentPage.verifyPrecenceOfMsg("Pilot! Now click `TO SPACE` and make your first flight!");
 		SpacePage spacePage = dockPage.toSpace();
-//		spacePage.verify();
-//		First Tutorial Quest
-		currentPage.verifyPrecenceOfMsg("Your aim is to achieve");
-		spacePage.accelerateTo100miles();
-//		Second tutorial quest
-		currentPage.verifyPrecenceOfMsg("You can zoom in or out the game screen with the ");
+//		First tutorial quest            
+		currentPage.verifyPrecenceOfMsg("Change the scale to see the entire polygon.");
 		spacePage.zoomTheSpace();
 		currentPage.verifyPrecenceOfMsg("Watch the borders of polygon.");
 		spacePage.continueTutorial();
-		currentPage.verifyPrecenceOfMsg("Your next aim is to fly through the checkpoint.");
+		currentPage.verifyPrecenceOfMsg("Your aim is to fly through the checkpoint.");
 		spacePage.goToTheCheckPoint();
-		currentPage.verifyPrecenceOfMsg("Excellent! You've completed the task. Your reward is");
+		currentPage.verifyPrecenceOfMsg("Excellent! You've completed the task.");
 		spacePage.continueTutorial();
-//		Third tutorial quest
-		currentPage.verifyPrecenceOfMsg("and move up/down, left/right to look around");
+//		Second tutorial quest
+		currentPage.verifyPrecenceOfMsg("Couple of useful tips.");
 		spacePage.lookArround();
+		currentPage.verifyPrecenceOfMsg("Fly through all checkpoints at polygon.");
 		spacePage.goToTheCheckPoint();
-		currentPage.verifyPrecenceOfMsg("the new area at polygon) to fly through the last checkpoint.");
 		spacePage.goToTheCheckPoint();
 		currentPage.verifyPrecenceOfMsg("You've completed the task.");
 		spacePage.continueTutorial();
-//		Fourth tutorial
-		currentPage.verifyPrecenceOfMsg("to launch the missile. It's flightpath is indicated by");
+//		Third tutorial
+		currentPage.verifyPrecenceOfMsg("It takes a few seconds to reload the weapons after each shot.");
 		spacePage.launchTheMissileByPressKey1();
 		currentPage.verifyPrecenceOfMsg("Now you need to learn how to turn your ship.");
 		spacePage.turnTheShip();
@@ -47,7 +44,7 @@ public class TC_FirstSpaceQuest extends TestCase {
 		spacePage.LaunchMissileOnTarget();
 		currentPage.verifyPrecenceOfMsg("Check the ammunition left. You can't restock the weapons in space.");
 		spacePage.LaunchMissileOnTarget();
-//		fifth tutorial 
+//		Fourth tutorial 
 		currentPage.verifyPrecenceOfMsg("Click this ship to see its characteristics and flightpath.");
 		spacePage.seeEnemyCharacteristics();
 		spacePage.verifyPrecenceOfEnemyCharacteristics();
@@ -59,10 +56,10 @@ public class TC_FirstSpaceQuest extends TestCase {
 		spacePage.killEnemy();
 		currentPage.verifyPrecenceOfMsg("All Clear! You destroyed it.");
 		spacePage.continueTutorial();
+//		Fifth tutorial
 		currentPage.verifyPrecenceOfMsg("We've got visitor here. Destroy him.");
 		spacePage.seeEnemyCharacteristics();
 		spacePage.killEnemy();
-//		spacePage.killEnemy();//not implemented
 		currentPage.verifyPrecenceOfMsg("You've completed the last task.");
 		spacePage.goToOuterSpace();
 		spacePage.logOutFromSpace();		

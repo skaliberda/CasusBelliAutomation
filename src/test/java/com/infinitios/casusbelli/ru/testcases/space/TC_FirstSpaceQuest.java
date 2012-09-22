@@ -3,9 +3,7 @@ package com.infinitios.casusbelli.ru.testcases.space;
 import org.testng.annotations.Test;
 
 import com.infinitios.casusbelli.core.TestCase;
-import com.infinitios.casusbelli.web.structure.en.pages.DockPage;
-import com.infinitios.casusbelli.web.structure.en.pages.HomePage;
-import com.infinitios.casusbelli.web.structure.en.pages.SpacePage;
+import com.infinitios.casusbelli.web.structure.ru.pages.*;
 
 public class TC_FirstSpaceQuest extends TestCase {
 
@@ -13,57 +11,54 @@ public class TC_FirstSpaceQuest extends TestCase {
 	public void test() throws Exception {
 		HomePage homePage = new HomePage(driver);
 		homePage.verify();
-		homePage.login("kzqivj@mailinator.com", "password1");
-		homePage.switchToEnLanguage();
+		homePage.login("oypu@mailinator.com", "password1");
+		homePage.switchToRuLanguage();
 		DockPage dockPage = homePage.play();
+		currentPage.verifyPrecenceOfMsg("Пилот! Кликай кнопку 'В космос!' и сделай первый учебный вылет!");
 		SpacePage spacePage = dockPage.toSpace();
-//		spacePage.verify();
-//		First Tutorial Quest
-		currentPage.verifyPrecenceOfMsg("Your aim is to achieve");
-		spacePage.accelerateTo100miles();
-//		Second tutorial quest
-		currentPage.verifyPrecenceOfMsg("You can zoom in or out the game screen with the ");
+//		First tutorial quest            
+		currentPage.verifyPrecenceOfMsg("Измени масштаб, чтобы увидеть весь полигон.");
 		spacePage.zoomTheSpace();
-		currentPage.verifyPrecenceOfMsg("Watch the borders of polygon.");
+		currentPage.verifyPrecenceOfMsg("Обрати внимание на размеры полигона.");
 		spacePage.continueTutorial();
-		currentPage.verifyPrecenceOfMsg("Your next aim is to fly through the checkpoint.");
+		currentPage.verifyPrecenceOfMsg("Твое задание - пролети через контрольную точку.");
 		spacePage.goToTheCheckPoint();
-		currentPage.verifyPrecenceOfMsg("Excellent! You've completed the task. Your reward is");
+		currentPage.verifyPrecenceOfMsg("Отлично! Ты выполнил задание.");
 		spacePage.continueTutorial();
-//		Third tutorial quest
-		currentPage.verifyPrecenceOfMsg("and move up/down, left/right to look around");
+//		Second tutorial quest
+		currentPage.verifyPrecenceOfMsg("Пару полезных советов.");
 		spacePage.lookArround();
+		currentPage.verifyPrecenceOfMsg("Пролети через все контрольные точки на полигоне.");
+		spacePage.goToTheCheckPoint();		
 		spacePage.goToTheCheckPoint();
-		currentPage.verifyPrecenceOfMsg("the new area at polygon) to fly through the last checkpoint.");
-		spacePage.goToTheCheckPoint();
-		currentPage.verifyPrecenceOfMsg("You've completed the task.");
+		currentPage.verifyPrecenceOfMsg("Ты справился с заданием.");
 		spacePage.continueTutorial();
-//		Fourth tutorial
-		currentPage.verifyPrecenceOfMsg("to launch the missile. It's flightpath is indicated by");
+//		Third tutorial
+		currentPage.verifyPrecenceOfMsg("После каждого выстрела требуется несколько секунд для перезарядки орудий.");
 		spacePage.launchTheMissileByPressKey1();
-		currentPage.verifyPrecenceOfMsg("Now you need to learn how to turn your ship.");
+		currentPage.verifyPrecenceOfMsg("Теперь ты должен научиться разворачивать корабль.");
 		spacePage.turnTheShip();
-		currentPage.verifyPrecenceOfMsg("Launch the missile on target by pressing key");
+		currentPage.verifyPrecenceOfMsg("Стреляй, когда я подсвечу тебе точку пересечения траекторий полета контрольной точки и твоих ракет.");
 		spacePage.LaunchMissileOnTarget();
-		currentPage.verifyPrecenceOfMsg("Check the ammunition left. You can't restock the weapons in space.");
+		currentPage.verifyPrecenceOfMsg("Следи за количеством зарядов. Ты не сможешь пополнить их запас в космосе.");
 		spacePage.LaunchMissileOnTarget();
-//		fifth tutorial 
-		currentPage.verifyPrecenceOfMsg("Click this ship to see its characteristics and flightpath.");
+//		Fourth tutorial 
+		currentPage.verifyPrecenceOfMsg("Щелкни по нему, чтобы увидеть его характеристики и траекторию полета.");
 		spacePage.seeEnemyCharacteristics();
 		spacePage.verifyPrecenceOfEnemyCharacteristics();
-		currentPage.verifyPrecenceOfMsg("The characteristics of an enemy are shown on the left. To my mind it's slow and weak.");
+		currentPage.verifyPrecenceOfMsg("Слева отображаются характеристики противника. Слабоват, как по мне, и медленно двигается.");
 		spacePage.continueTutorial();
-		currentPage.verifyPrecenceOfMsg("To start fire turn your ship towards the enemy");
+		currentPage.verifyPrecenceOfMsg("Чтобы открыть огонь, поверни корабль в сторону противника");
 		spacePage.turnTheShipToTheEnemy();
-		currentPage.verifyPrecenceOfMsg("Start the fire when I'll highlight the cross point of your missiles and enemy's ship flightpath.");
+		currentPage.verifyPrecenceOfMsg("Стреляй, когда я подсвечу тебе точку пересечения траекторий полета вражеского корабля и твоих ракет.");
 		spacePage.killEnemy();
-		currentPage.verifyPrecenceOfMsg("All Clear! You destroyed it.");
+		currentPage.verifyPrecenceOfMsg("Все чисто! Ты его уничтожил.");
 		spacePage.continueTutorial();
-		currentPage.verifyPrecenceOfMsg("We've got visitor here. Destroy him.");
+//		Fifth tutorial
+		currentPage.verifyPrecenceOfMsg("Кажется у нас гость. Уничтожь его.");
 		spacePage.seeEnemyCharacteristics();
 		spacePage.killEnemy();
-//		spacePage.killEnemy();//not implemented
-		currentPage.verifyPrecenceOfMsg("You've completed the last task.");
+		currentPage.verifyPrecenceOfMsg("Ты выполнил последнее задание.");
 		spacePage.goToOuterSpace();
 		spacePage.logOutFromSpace();		
 	}

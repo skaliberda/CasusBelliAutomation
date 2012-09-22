@@ -149,7 +149,7 @@ public class SpacePage extends BasePage {
 			if(ship.getAiming()!=0){
 //				ship.stopRotateShip();
 				this.launchTheMissileByPressKey1();
-				break;
+//				break;
 			}
 			
 		}while(spaceCanvas.isCheckPointPresent());
@@ -186,7 +186,7 @@ public class SpacePage extends BasePage {
 //			Thread.sleep(500);
 			ship.turnShipClockwise();
 			if(ship.getAiming()!=0){
-				ship.stopRotateShip();
+//				ship.stopRotateShip();
 				this.launchTheMissileByPressKey1();
 //				break;
 			}

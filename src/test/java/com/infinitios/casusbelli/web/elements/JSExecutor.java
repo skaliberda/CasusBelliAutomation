@@ -44,7 +44,7 @@ public class JSExecutor extends AbstractElement {
 	public double getAiming(){
 		String getAimingJS = "return TestUtils.aiming";
 		double aim = ((Number)executeJavascript(driver, getAimingJS)).doubleValue();
-		log.debug("Current aim state = " + aim);
+//		log.debug("Current aim state = " + aim);
 		return aim;
 	}
 //	Get nearest checkpoint coordinates
@@ -162,14 +162,14 @@ public class JSExecutor extends AbstractElement {
 	public int getShipStopYCoordinate(){
 		String getYCoordinateJS = "return me.navigator.path.stop.toReal().y";
 		int coordY = ((Number)executeJavascript(driver, getYCoordinateJS)).intValue();
-		log.debug("Ship stop Y coordinate = " + coordY);
+//		log.debug("Ship stop Y coordinate = " + coordY);
 		return coordY;
 	}
 	
 	public int getShipStopXCoordinate(){
 		String getXCoordinateJS = "return me.navigator.path.stop.toReal().x";
 		int coordX = ((Number)executeJavascript(driver, getXCoordinateJS)).intValue();
-		log.debug("Ship stop X coordinate = " + coordX);
+//		log.debug("Ship stop X coordinate = " + coordX);
 		return coordX;
 	}
 }

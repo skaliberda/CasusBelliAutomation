@@ -17,14 +17,14 @@ public class SpacePage extends BasePage {
 	private JSExecutor ship = getJSExecutor("");
 	
 //	for watching borders
-	private NavigationElement continueQuestButton = getNavigationElement("//div[text()='Continue']");
+	private NavigationElement continueQuestButton = getNavigationElement("//div[text()='Продолжить']");
 	
 //	verify precence of enemy characteristics
 	private NavigationElement allCharacteristics = getNavigationElement("//canvas[@id='canvas-target']");
 	private OutputElement enemyShipName = getOutputElement("//div[@class='ship']/div[@class='name']");
 	
 //	go to theouter space
-	private NavigationElement outerSpaceButton = getNavigationElement("//div[contains(text(),'Go to Outer Space')]");
+	private NavigationElement outerSpaceButton = getNavigationElement("//div[contains(text(),'В открытый космос')]");
 	
 //	launch a missile
 	private NavigationElement missileSlot = getNavigationElement("//div[contains(@class, 'rocket-launcher-1_i')]");
@@ -186,7 +186,7 @@ public class SpacePage extends BasePage {
 //			Thread.sleep(500);
 			ship.turnShipClockwise();
 			if(ship.getAiming()!=0){
-				ship.stopRotateShip();
+//				ship.stopRotateShip();
 				this.launchTheMissileByPressKey1();
 //				break;
 			}

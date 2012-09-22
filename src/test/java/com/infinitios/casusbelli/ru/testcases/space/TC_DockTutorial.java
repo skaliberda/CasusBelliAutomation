@@ -10,7 +10,7 @@ import com.infinitios.casusbelli.web.structure.ru.pages.*;
 public class TC_DockTutorial extends TestCase {
 	
 //	@Test(groups = { "smoke" })
-	@Test(groups = { "dev" })
+//	@Test(groups = { "dev" })
 	public void test() throws Exception {
 		HomePage homePage = new HomePage(driver);
 		homePage.verify();
@@ -30,7 +30,7 @@ public class TC_DockTutorial extends TestCase {
 		dockPage.nextTutorial();
 		currentPage.verifyPrecenceOfMsg("Пилот! Теперь нужно укомплектовать корабль!");
 		dockPage.nextTutorial();		
-		currentPage.verifyPrecenceOfMsg("Открой Магазин и купи одну Ракетную установку.# Награда: 500 серебра!");
+		currentPage.verifyPrecenceOfMsg("Открой Магазин и купи одну Ракетную установку.");
 		ShopComponent shopComponent =  dockPage.openShop();
 		currentPage.verifyPrecenceOfMsg("Выбери категорию 'Орудия и пусковые установки'.");
 		shopComponent.openTurretsAndLaunchers();
