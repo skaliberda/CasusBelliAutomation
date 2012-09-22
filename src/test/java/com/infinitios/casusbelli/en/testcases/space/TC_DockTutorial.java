@@ -13,7 +13,7 @@ import com.infinitios.casusbelli.web.structure.en.pages.RegisterPage;
 public class TC_DockTutorial extends TestCase {
 	
 //	@Test(groups = { "smoke" })
-	@Test(groups = { "dev" })
+//	@Test(groups = { "dev" })
 	public void test() throws Exception {
 		HomePage homePage = new HomePage(driver);
 		homePage.verify();
