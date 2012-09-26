@@ -14,13 +14,23 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import com.infinitios.casusbelli.utils.Constants;
 import com.infinitios.casusbelli.web.structure.BasePage;
+import com.opera.core.systems.OperaDriver;
+
 
 public class BaseTestCase {
+	
+//	public enum selectedBrowser {
+//
+//        FIREFOX, IE6, IE7, IE8, IE9, SAFARI, OPERA, GOOGLECHROME, ANDROID, IPHONE, HTMLUNIT
+//    }
 	
 	protected static final String HTML = ".html";
 	protected Date date = new Date();
@@ -46,7 +56,7 @@ public class BaseTestCase {
 	
     
     protected void maximizeWindow() {
-		driver.manage().window().maximize();
+//		driver.manage().window().maximize();
 	}
     
     protected static Object executeJavascript(WebDriver driver, String script){
@@ -67,6 +77,42 @@ public class BaseTestCase {
         prf.setAssumeUntrustedCertificateIssuer(false);
         return (prf);
     }
+	
+	 /**
+     * Set the driver type based upon settings scraped from Env.properties
+     * run function to get release number of website being tested
+     *
+     * @param driverObject - object to instantiate
+     * @return WebDriver
+     */
+    public WebDriver setBrowser(WebDriver driverObject, String browser) {
+        try {
+        	if(browser.equals("firefox")){
+        		driverObject = new FirefoxDriver(generateFirefoxProfile());
+        		log.debug("Using FIREFOX Driver...");
+        	} else if(browser.equals("ie")){
+        		driverObject = new InternetExplorerDriver();
+                log.debug("Using INTERNET EXPLORER Driver...");
+        	}else if(browser.equals("chrome")){
+//              System.setProperty("webdriver.chrome.driver", settings.chromeDriverLocation());
+              driverObject = new ChromeDriver();
+              log.debug("Using GOOGLECHROME Driver...");
+        	}else if(browser.equals("safari")){
+        		 //FUTURE
+        	}else if(browser.equals("opera")){
+                driverObject = new OperaDriver();
+                log.debug("Using Opera Driver...");
+        	}else{
+//              driverObject = new HtmlUnitDriver(setHTMLUnitCapabilities(browserDetails.getHTMLUnitEmulation()));
+              log.debug("Using HTMLUNIT Driver...");	
+        	}
+        } catch (Exception x) {
+            log.error("Error in setBrowser: {}");
+            return driverObject;
+        }
+        return driverObject;
+    }
+
     
 	protected StackTraceElement getCurrentlyExecutingElement() {
 		Throwable t = new Throwable();

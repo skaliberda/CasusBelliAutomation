@@ -34,6 +34,7 @@ public class TestCase extends BaseTestCase{
 		System.out.println("==============================");
 		System.out.println(getCurrentlyExecutingClassName());
 		System.out.println("==============================");
+				
 
     	final StringBuffer resultHtmlFileName = new StringBuffer(seleniumReportPathParam).append(File.separator).append(logFileName);
   
@@ -50,12 +51,20 @@ public class TestCase extends BaseTestCase{
 		fileappender = new FileAppender(new XHTMLLayout(), resultHtmlFileName.toString());
 		log.addAppender(fileappender);
 
-		driver = new EventFiringWebDriver(new FirefoxDriver(generateFirefoxProfile()));
+		String browser = java.lang.System.getProperties().getProperty("webbrowser");
+		if(browser==null){
+			browser = "opera";
+		}
+		System.out.println("==============================");
+		System.out.println("BROWSER = "+ browser);
+		System.out.println("==============================");
+		
+		driver = new EventFiringWebDriver(setBrowser(driver, browser));
     	driver.register(new LoggingWebDriverEventListener(log));
     	driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
     	maximizeWindow();
 		
-		driver.get(serverAddress);
+		driver.navigate().to(serverAddress);
 		currentPage = new BasePage(driver);
 		
     }
