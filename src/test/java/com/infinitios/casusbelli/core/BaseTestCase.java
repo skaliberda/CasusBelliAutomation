@@ -1,5 +1,6 @@
 package com.infinitios.casusbelli.core;
 
+import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 import java.text.Format;
@@ -10,8 +11,10 @@ import java.util.Date;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.FileAppender;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -55,8 +58,15 @@ public class BaseTestCase {
 	}
 	
     
-    protected void maximizeWindow() {
-//		driver.manage().window().maximize();
+    protected void maximizeWindow(String browser) {
+    	if(browser.equals("opera")){
+//    		driver.manage().window().setPosition(new Point(0, 0));
+//    		java.awt.Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+//    		Dimension dim = new Dimension((int) screenSize.getWidth(), (int) screenSize.getHeight());
+//    		driver.manage().window().setSize(dim);
+    	}else{
+    		driver.manage().window().maximize();
+    	}
 	}
     
     protected static Object executeJavascript(WebDriver driver, String script){
@@ -91,10 +101,11 @@ public class BaseTestCase {
         		driverObject = new FirefoxDriver(generateFirefoxProfile());
         		log.debug("Using FIREFOX Driver...");
         	} else if(browser.equals("ie")){
+        		System.setProperty("webdriver.ie.driver", ".\\libs\\IEDriverServer.exe ");
         		driverObject = new InternetExplorerDriver();
                 log.debug("Using INTERNET EXPLORER Driver...");
         	}else if(browser.equals("chrome")){
-//              System.setProperty("webdriver.chrome.driver", settings.chromeDriverLocation());
+        		System.setProperty("webdriver.chrome.driver", ".\\libs\\chromedriver.exe ");
               driverObject = new ChromeDriver();
               log.debug("Using GOOGLECHROME Driver...");
         	}else if(browser.equals("safari")){

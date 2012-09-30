@@ -25,6 +25,7 @@ public class SpacePage extends BasePage {
 	
 //	go to theouter space
 	private NavigationElement outerSpaceButton = getNavigationElement("//div[contains(text(),'В открытый космос')]");
+	private NavigationElement goDockButton = getNavigationElement("//div[contains(text(),'В Док')]");
 	
 //	launch a missile
 	private NavigationElement missileSlot = getNavigationElement("//div[contains(@class, 'rocket-launcher-1_i')]");
@@ -132,7 +133,7 @@ public class SpacePage extends BasePage {
 	public void turnTheShip() throws InterruptedException {
 //		Now you need to learn how to turn your ship. Press A key to turn counterclockwise or D key to turn clockwise.
 		ship.turnShipClockwise();
-		Thread.sleep(4000);
+		Thread.sleep(8000);
 		ship.stopRotateShip();
 //		keys.downSpecificKey("D");
 //		Thread.sleep(3000);
@@ -200,5 +201,18 @@ public class SpacePage extends BasePage {
 		outerSpaceButton.waitForElement();
 		assertThis("Go to the Outer space button is absent on space pasge", outerSpaceButton.isElementPresent());
 		outerSpaceButton.click();
+	}
+
+	public void goToDock() throws Exception {
+		goDockButton.waitForElement();
+		assertThis("Go to the Dock button is absent on space pasge", goDockButton.isElementPresent());
+		goDockButton.click();
+		
+	}
+
+	public void waitForVelocity() throws Exception {
+		velocityIndicator.waitForElement();
+		assertThis("Velocity indicator is absent on Space page", velocityIndicator.isElementPresent());
+		
 	}
 }

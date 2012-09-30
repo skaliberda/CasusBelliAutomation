@@ -11,12 +11,13 @@ public class TC_FirstSpaceQuest extends TestCase {
 	public void test() throws Exception {
 		HomePage homePage = new HomePage(driver);
 		homePage.verify();
-		homePage.login("oypu@mailinator.com", "password1");
+		homePage.login("ohyhe@mailinator.com", "password1");
 		homePage.switchToRuLanguage();
 		DockPage dockPage = homePage.play();
 		currentPage.verifyPrecenceOfMsg("Пилот! Кликай кнопку 'В космос!' и сделай первый учебный вылет!");
 		SpacePage spacePage = dockPage.toSpace();
-//		First tutorial quest            
+//		First tutorial quest 
+		spacePage.waitForVelocity();
 		currentPage.verifyPrecenceOfMsg("Измени масштаб, чтобы увидеть весь полигон.");
 		spacePage.zoomTheSpace();
 		currentPage.verifyPrecenceOfMsg("Обрати внимание на размеры полигона.");
@@ -48,7 +49,7 @@ public class TC_FirstSpaceQuest extends TestCase {
 		spacePage.verifyPrecenceOfEnemyCharacteristics();
 		currentPage.verifyPrecenceOfMsg("Слева отображаются характеристики противника. Слабоват, как по мне, и медленно двигается.");
 		spacePage.continueTutorial();
-		currentPage.verifyPrecenceOfMsg("Чтобы открыть огонь, поверни корабль в сторону противника");
+//		currentPage.verifyPrecenceOfMsg("Чтобы открыть огонь, поверни корабль в сторону противника");
 		spacePage.turnTheShipToTheEnemy();
 		currentPage.verifyPrecenceOfMsg("Стреляй, когда я подсвечу тебе точку пересечения траекторий полета вражеского корабля и твоих ракет.");
 		spacePage.killEnemy();
@@ -59,7 +60,8 @@ public class TC_FirstSpaceQuest extends TestCase {
 		spacePage.seeEnemyCharacteristics();
 		spacePage.killEnemy();
 		currentPage.verifyPrecenceOfMsg("Ты выполнил последнее задание.");
-		spacePage.goToOuterSpace();
-		spacePage.logOutFromSpace();		
+		spacePage.goToDock();
+//		spacePage.goToOuterSpace();
+//		spacePage.logOutFromSpace();		
 	}
 }

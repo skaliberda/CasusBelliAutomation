@@ -53,7 +53,7 @@ public class TestCase extends BaseTestCase{
 
 		String browser = java.lang.System.getProperties().getProperty("webbrowser");
 		if(browser==null){
-			browser = "opera";
+			browser = "ie";
 		}
 		System.out.println("==============================");
 		System.out.println("BROWSER = "+ browser);
@@ -61,8 +61,8 @@ public class TestCase extends BaseTestCase{
 		
 		driver = new EventFiringWebDriver(setBrowser(driver, browser));
     	driver.register(new LoggingWebDriverEventListener(log));
-    	driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-    	maximizeWindow();
+    	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    	maximizeWindow(browser);
 		
 		driver.navigate().to(serverAddress);
 		currentPage = new BasePage(driver);

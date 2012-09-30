@@ -2,6 +2,7 @@ package com.infinitios.casusbelli.web.structure.en.pages;
 
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
+import com.infinitios.casusbelli.web.elements.AbstractElement;
 import com.infinitios.casusbelli.web.elements.InputElement;
 import com.infinitios.casusbelli.web.elements.NavigationElement;
 import com.infinitios.casusbelli.web.en.components.ConfiguratorComponent;
@@ -16,7 +17,7 @@ public class DockPage extends BasePage {
 	private NavigationElement configuratorLink = getNavigationElement("//a[@id='config-button']");
 	private NavigationElement toSpaceLink = getNavigationElement("//a[@id='launch-button']");
 	
-
+	private AbstractElement tutorialTitle = getWebElement("//h3[contains(text(), 'TUTORIAL')]");
 	public DockPage(EventFiringWebDriver driver) {
 		super(driver);
 		log.info("Dock page is opened");
@@ -25,11 +26,12 @@ public class DockPage extends BasePage {
 	public void enterCharacterName(String characterName) throws Exception {
 		characterNameField.waitForElement();
 		assertThis("Character Name field is absent on Dock page", characterNameField.isElementPresent());
-		characterNameField.typeTextAndPressEnter(characterName);
+		characterNameField.typeText/*AndPressEnter*/(characterName);
 	}
 
-	public void verify() {
-		// TODO Auto-generated method stub
+	public void verify() throws Exception {
+		tutorialTitle.waitForElement();
+		assertThis("Tutorial TITLE is absent on Dock page", tutorialTitle.isElementPresent());
 	}
 
 	public void nextTutorial() throws Exception {

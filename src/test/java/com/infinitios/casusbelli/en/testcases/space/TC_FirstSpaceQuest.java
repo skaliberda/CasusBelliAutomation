@@ -13,13 +13,14 @@ public class TC_FirstSpaceQuest extends TestCase {
 	public void test() throws Exception {
 		HomePage homePage = new HomePage(driver);
 		homePage.verify();
-		homePage.login("fuihjmrxb@mailinator.com", "password1");
+		homePage.login("ohyhe@mailinator.com", "password1");
 		homePage.switchToEnLanguage();
 		DockPage dockPage = homePage.play();
 		currentPage.verifyPrecenceOfMsg("Pilot! Now click `TO SPACE` and make your first flight!");
 		SpacePage spacePage = dockPage.toSpace();
-//		First tutorial quest            
-		currentPage.verifyPrecenceOfMsg("Change the scale to see the entire polygon.");
+//		First tutorial quest
+		spacePage.waitForVelocity();
+		currentPage.verifyPrecenceOfMsg("Pilot! I'm glad to meet you!");
 		spacePage.zoomTheSpace();
 		currentPage.verifyPrecenceOfMsg("Watch the borders of polygon.");
 		spacePage.continueTutorial();
@@ -50,7 +51,6 @@ public class TC_FirstSpaceQuest extends TestCase {
 		spacePage.verifyPrecenceOfEnemyCharacteristics();
 		currentPage.verifyPrecenceOfMsg("The characteristics of an enemy are shown on the left. To my mind it's slow and weak.");
 		spacePage.continueTutorial();
-		currentPage.verifyPrecenceOfMsg("To start fire turn your ship towards the enemy");
 		spacePage.turnTheShipToTheEnemy();
 		currentPage.verifyPrecenceOfMsg("Start the fire when I'll highlight the cross point of your missiles and enemy's ship flightpath.");
 		spacePage.killEnemy();
@@ -61,7 +61,8 @@ public class TC_FirstSpaceQuest extends TestCase {
 		spacePage.seeEnemyCharacteristics();
 		spacePage.killEnemy();
 		currentPage.verifyPrecenceOfMsg("You've completed the last task.");
-		spacePage.goToOuterSpace();
-		spacePage.logOutFromSpace();		
+//		spacePage.goToOuterSpace();
+		spacePage.goToDock();
+//		spacePage.logOutFromSpace();		
 	}
 }
