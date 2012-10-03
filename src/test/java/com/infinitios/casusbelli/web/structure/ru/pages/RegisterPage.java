@@ -9,6 +9,7 @@ import com.infinitios.casusbelli.web.structure.BasePage;
 public class RegisterPage extends BasePage {
 	
 	private InputElement emailField = getInputElement("//input[@id='reg-email']");
+	private InputElement passwordField = getInputElement("//input[@id='reg-password']");
 	private NavigationElement playForFreeButton = getNavigationElement("//dd[@id='submit-element']/input");
 
 	public RegisterPage(EventFiringWebDriver driver) {
@@ -32,6 +33,13 @@ public class RegisterPage extends BasePage {
 		assertThis("Play For Free button is absent on Register page", playForFreeButton.isElementPresent());
 		playForFreeButton.click();
 		return new DockPage(driver);
+	}
+
+	public void enterPassword(String psw) throws Exception {
+		passwordField.waitForElement();
+		assertThis("Password field is absent on Register page", passwordField.isElementPresent());
+		passwordField.typeText(psw);
+		
 	}
 
 }
