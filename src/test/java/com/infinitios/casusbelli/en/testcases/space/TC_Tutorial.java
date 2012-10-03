@@ -21,8 +21,10 @@ public class TC_Tutorial extends TestCase {
 		RegisterPage registerPage = homePage.signUp();
 		registerPage.verify();
 		registerPage.enterEmail(Utils.getUniqueNameForEmail() + "@mailinator.com");
+		registerPage.enterPassword("password1");
 		DockPage dockPage = registerPage.playForFree();
 		dockPage.verify();
+		System.out.println("sadfasdf");
 		currentPage.verifyPrecenceOfMsg("Name yourself. This will be your name known to other pilots.");
 		dockPage.enterCharacterName("Test_" + Utils.getUniqueUserName());
 		dockPage.nextTutorial();
@@ -110,6 +112,6 @@ public class TC_Tutorial extends TestCase {
 		currentPage.verifyPrecenceOfMsg("You've completed the last task.");
 //		spacePage.goToOuterSpace();
 		spacePage.goToDock();
-//		spacePage.logOutFromSpace();		
+		dockPage.verify();
 	}
 }

@@ -17,7 +17,7 @@ public class DockPage extends BasePage {
 	private NavigationElement configuratorLink = getNavigationElement("//a[@id='config-button']");
 	private NavigationElement toSpaceLink = getNavigationElement("//a[@id='launch-button']");
 	
-	private AbstractElement tutorialTitle = getWebElement("//h3[contains(text(), 'TUTORIAL')]");
+	private AbstractElement statisticsPanel = getWebElement("//div[@class='info panel']");
 	public DockPage(EventFiringWebDriver driver) {
 		super(driver);
 		log.info("Dock page is opened");
@@ -30,8 +30,8 @@ public class DockPage extends BasePage {
 	}
 
 	public void verify() throws Exception {
-		tutorialTitle.waitForElement();
-		assertThis("Tutorial TITLE is absent on Dock page", tutorialTitle.isElementPresent());
+		statisticsPanel.waitForElement();
+		assertThis("Statistic panel is absent on Dock page", statisticsPanel.isElementPresent());
 	}
 
 	public void nextTutorial() throws Exception {

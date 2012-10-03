@@ -149,9 +149,9 @@ public class SpacePage extends BasePage {
 //			Thread.sleep(500);
 			
 			if(ship.getAiming()!=0){
-//				ship.stopRotateShip();
+				ship.stopRotateShip();
 				this.launchTheMissileByPressKey1();
-//				break;
+				break;
 			}
 			
 		}while(spaceCanvas.isCheckPointPresent());

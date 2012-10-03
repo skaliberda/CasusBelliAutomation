@@ -17,7 +17,7 @@ public class SpacePage extends BasePage {
 	private JSExecutor ship = getJSExecutor("");
 	
 //	for watching borders
-	private NavigationElement continueQuestButton = getNavigationElement("//div[text()='РџСЂРѕРґРѕР»Р¶РёС‚СЊ']");
+	private NavigationElement continueQuestButton = getNavigationElement("//div[text()='Продолжить']");
 	
 //	verify precence of enemy characteristics
 	private NavigationElement allCharacteristics = getNavigationElement("//canvas[@id='canvas-target']");
@@ -25,7 +25,7 @@ public class SpacePage extends BasePage {
 	
 //	go to theouter space
 	private NavigationElement outerSpaceButton = getNavigationElement("//div[contains(text(),'Go to Outer Space!')]");
-	private NavigationElement goDockButton = getNavigationElement("//div[contains(text(),'Р’ Р”РѕРє')]");
+	private NavigationElement goDockButton = getNavigationElement("//div[contains(text(),'В Док')]");
 	
 //	launch a missile
 	private NavigationElement missileSlot = getNavigationElement("//div[contains(@class, 'rocket-launcher-1_i')]");
