@@ -21,6 +21,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import com.infinitios.casusbelli.utils.Constants;
@@ -88,6 +89,12 @@ public class BaseTestCase {
         return (prf);
     }
 	
+	protected DesiredCapabilities generateChromeCapabilities()throws IOException{
+		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+		capabilities.setCapability("chrome.binary", "/opt/google/chrome/google-chrome");
+		return capabilities;  
+	}
+	
 	 /**
      * Set the driver type based upon settings scraped from Env.properties
      * run function to get release number of website being tested
@@ -106,7 +113,7 @@ public class BaseTestCase {
                 log.debug("Using INTERNET EXPLORER Driver...");
         	}else if(browser.equals("chrome")){
         		System.setProperty("webdriver.chrome.driver", ".\\libs\\chromedriver.exe ");
-              driverObject = new ChromeDriver();
+              driverObject = new ChromeDriver(/*generateChromeCapabilities()*/);
               log.debug("Using GOOGLECHROME Driver...");
         	}else if(browser.equals("safari")){
         		 //FUTURE
