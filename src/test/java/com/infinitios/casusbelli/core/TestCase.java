@@ -53,7 +53,7 @@ public class TestCase extends BaseTestCase{
 
 		String browser = java.lang.System.getProperties().getProperty("webbrowser");
 		if(browser==null){
-			browser = "chrome";
+			browser = "firefox";
 		}
 		System.out.println("==============================");
 		System.out.println("BROWSER = "+ browser);
