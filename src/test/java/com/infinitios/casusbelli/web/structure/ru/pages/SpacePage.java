@@ -1,4 +1,4 @@
-package com.infinitios.casusbelli.web.structure.ru.pages;
+ï»¿package com.infinitios.casusbelli.web.structure.ru.pages;
 
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
@@ -17,7 +17,7 @@ public class SpacePage extends BasePage {
 	private JSExecutor ship = getJSExecutor("");
 	
 //	for watching borders
-	private NavigationElement continueQuestButton = getNavigationElement("//div[text()='Ïðîäîëæèòü']");
+	private NavigationElement continueQuestButton = getNavigationElement("//div[text()='ÐŸÑ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚ÑŒ']");
 	
 //	verify precence of enemy characteristics
 	private NavigationElement allCharacteristics = getNavigationElement("//canvas[@id='canvas-target']");
@@ -25,7 +25,7 @@ public class SpacePage extends BasePage {
 	
 //	go to theouter space
 	private NavigationElement outerSpaceButton = getNavigationElement("//div[contains(text(),'Go to Outer Space!')]");
-	private NavigationElement goDockButton = getNavigationElement("//div[contains(text(),'Â Äîê')]");
+	private NavigationElement goDockButton = getNavigationElement("//div[contains(text(),'Ð’ Ð”Ð¾Ðº')]");
 	
 //	launch a missile
 	private NavigationElement missileSlot = getNavigationElement("//div[contains(@class, 'rocket-launcher-1_i')]");

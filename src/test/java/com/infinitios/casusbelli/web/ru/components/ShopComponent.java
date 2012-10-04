@@ -1,4 +1,4 @@
-package com.infinitios.casusbelli.web.ru.components;
+п»їpackage com.infinitios.casusbelli.web.ru.components;
 
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
@@ -7,17 +7,17 @@ import com.infinitios.casusbelli.web.structure.BasePage;
 
 public class ShopComponent extends BasePage {
 
-	private NavigationElement turretsAndLaunchersLink = getNavigationElement("//a[contains(text(), 'Орудия и пусковые установки')]");
-	private NavigationElement ammunitionAndProjectilesLink = getNavigationElement("//a[text()='Боеприпасы и заряды']");
+	private NavigationElement turretsAndLaunchersLink = getNavigationElement("//a[contains(text(), 'РћСЂСѓРґРёСЏ Рё РїСѓСЃРєРѕРІС‹Рµ СѓСЃС‚Р°РЅРѕРІРєРё')]");
+	private NavigationElement ammunitionAndProjectilesLink = getNavigationElement("//a[text()='Р‘РѕРµРїСЂРёРїР°СЃС‹ Рё Р·Р°СЂСЏРґС‹']");
 	
-	private NavigationElement missileLaunchersLink = getNavigationElement("//div[contains(text(),'Ракетные пусковые установки')]");
-	private NavigationElement missilesAndTorpedoesLink = getNavigationElement("//div[contains(text(),'Ракеты и торпеды')]");
+	private NavigationElement missileLaunchersLink = getNavigationElement("//div[contains(text(),'Р Р°РєРµС‚РЅС‹Рµ РїСѓСЃРєРѕРІС‹Рµ СѓСЃС‚Р°РЅРѕРІРєРё')]");
+	private NavigationElement missilesAndTorpedoesLink = getNavigationElement("//div[contains(text(),'Р Р°РєРµС‚С‹ Рё С‚РѕСЂРїРµРґС‹')]");
 	
-	private NavigationElement missileLauncherL1Link = getNavigationElement("//div[@id='shop-items-body']//div[contains(text(), 'Ракетная установка t.Co l1')]");
-	private NavigationElement RocketL1Link = getNavigationElement("//div[@id='shop-items-body']//div[text()='Ракета l1']/../../..");
+	private NavigationElement missileLauncherL1Link = getNavigationElement("//div[@id='shop-items-body']//div[contains(text(), 'Р Р°РєРµС‚РЅР°СЏ СѓСЃС‚Р°РЅРѕРІРєР° t.Co l1')]");
+	private NavigationElement RocketL1Link = getNavigationElement("//div[@id='shop-items-body']//div[text()='Р Р°РєРµС‚Р° l1']/../../..");
 	
-	private NavigationElement buyItemButton = getNavigationElement("//div[contains(@class,'footer')]//div[contains(text(), 'Купить')]");
-	private NavigationElement confirmBuyingItemButton = getNavigationElement("//div[@id='dialog']//div[contains(text(), 'Купить')]");
+	private NavigationElement buyItemButton = getNavigationElement("//div[contains(@class,'footer')]//div[contains(text(), 'РљСѓРїРёС‚СЊ')]");
+	private NavigationElement confirmBuyingItemButton = getNavigationElement("//div[@id='dialog']//div[contains(text(), 'РљСѓРїРёС‚СЊ')]");
 	
 	public ShopComponent(EventFiringWebDriver driver) {
 		super(driver);
