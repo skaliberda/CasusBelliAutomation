@@ -72,7 +72,7 @@ public class JSExecutor extends AbstractElement {
 		}
 //		System.out.println(String.valueOf(executeJavascript(driver, checkPoint)));
 //		log.debug("Value"+ String.valueOf(executeJavascript(driver, checkPoint)));
-		log.debug("Checkpoin present = " + checkPointBool);
+//		log.debug("Checkpoin present = " + checkPointBool);
 		return checkPointBool;
 	}
 	

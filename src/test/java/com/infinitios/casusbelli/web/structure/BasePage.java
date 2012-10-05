@@ -139,8 +139,9 @@ public class BasePage /*implements Page*/ {
 	}
 	
 	public void verifyPrecenceOfMsg(String verMsg) throws Exception{
-		waitForMessage(verMsg);
-		assertThis("Message \"" + verMsg + "\" is absent on current page.", isTextPresent(verMsg));
+		OutputElement msgElement = getOutputElement("//*[contains(text(),\"" + verMsg + "\")]");
+		msgElement.waitForElement();
+		assertThis("Message \"" + verMsg + "\" is absent on current page.", msgElement.isElementPresent());
 		log.debug("Message \"" + verMsg + "\" is present on current page.");
 	}
 	

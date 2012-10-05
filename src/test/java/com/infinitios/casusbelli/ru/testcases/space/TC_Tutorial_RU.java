@@ -23,12 +23,65 @@ public class TC_Tutorial_RU extends TestCase {
 		dockPage.verify();
 		currentPage.verifyPrecenceOfMsg("Напиши свое имя, под которым тебя будут знать другие.");
 		dockPage.enterCharacterName("Test_" + Utils.getUniqueUserName());
-		currentPage.verifyPrecenceOfMsg("Следи за зонами! Здесь видно сколько пилотов в космосе!");
+		dockPage.nextTutorial();
+	/*	currentPage.verifyPrecenceOfMsg("Следи за зонами! Здесь видно сколько пилотов в космосе!");
 		dockPage.nextTutorial();
 		currentPage.verifyPrecenceOfMsg("Деньги – важная часть карьеры пилота! Пройди обучение и заработай серебро на свои первые покупки.");
 		dockPage.nextTutorial();
 		currentPage.verifyPrecenceOfMsg("С помощью опыта можно открывать и покупать новое оружие в магазине!");
 		dockPage.nextTutorial();
+		
+//		/////////////////////////
+*/		currentPage.verifyPrecenceOfMsg("Пилот! Кликай кнопку 'В космос!' и сделай первый учебный вылет!");
+		SpacePage spacePage = dockPage.toSpace();
+//		First tutorial quest 
+		spacePage.waitForVelocity();
+		currentPage.verifyPrecenceOfMsg("Пилот! Я рада нашей встрече!");
+		spacePage.zoomTheSpace();
+		currentPage.verifyPrecenceOfMsg("Обрати внимание на размеры полигона.");
+		spacePage.continueTutorial();
+		currentPage.verifyPrecenceOfMsg("Твое задание - пролети через контрольную точку.");
+		spacePage.goToTheCheckPoint();
+		currentPage.verifyPrecenceOfMsg("Отлично! Ты выполнил задание.");
+		spacePage.continueTutorial();
+//		Second tutorial quest
+		currentPage.verifyPrecenceOfMsg("Пару полезных советов.");
+		spacePage.lookArround();
+		currentPage.verifyPrecenceOfMsg("Пролети через все контрольные точки на полигоне.");
+		spacePage.goToTheCheckPoint();		
+		spacePage.goToTheCheckPoint();
+		currentPage.verifyPrecenceOfMsg("Ты справился с заданием.");
+		spacePage.continueTutorial();
+//		Third tutorial
+		currentPage.verifyPrecenceOfMsg("Нажми клавишу ");
+		spacePage.launchTheMissileByPressKey1();
+		currentPage.verifyPrecenceOfMsg("Теперь ты должен научиться разворачивать корабль.");
+		spacePage.turnTheShip();
+		currentPage.verifyPrecenceOfMsg("Выпусти ракету по цели клавишей");
+		spacePage.LaunchMissileOnTarget();
+		currentPage.verifyPrecenceOfMsg("Следи за количеством зарядов. Ты не сможешь пополнить их запас в космосе.");
+		spacePage.LaunchMissileOnTarget();
+//		Fourth tutorial 
+		currentPage.verifyPrecenceOfMsg("Похоже к нам приближается вражеский корабль");
+		spacePage.seeEnemyCharacteristics();
+		spacePage.verifyPrecenceOfEnemyCharacteristics();
+		currentPage.verifyPrecenceOfMsg("Слева отображаются характеристики противника. Слабоват, как по мне, и медленно двигается.");
+		spacePage.continueTutorial();
+//		currentPage.verifyPrecenceOfMsg("Чтобы открыть огонь, поверни корабль в сторону противника");
+		spacePage.turnTheShipToTheEnemy();
+		currentPage.verifyPrecenceOfMsg("Стреляй, когда я подсвечу тебе точку пересечения траекторий полета вражеского корабля и твоих ракет.");
+		spacePage.killEnemy();
+//		currentPage.verifyPrecenceOfMsg("Прямое попадание!");
+		spacePage.continueTutorial();
+//		Fifth tutorial
+		currentPage.verifyPrecenceOfMsg("Кажется у нас гость. Уничтожь его.");
+		spacePage.seeEnemyCharacteristics();
+		spacePage.killEnemy();
+		currentPage.verifyPrecenceOfMsg("Ты выполнил последнее задание.");
+//		spacePage.goToDock();
+		spacePage.goToOuterSpace();
+		currentPage.verifyPrecenceOfMsg("Пилот! На орбите обнаружены вражеские корабли. Земной флот нуждается в твоей помощи.");
+		spacePage.logOutFromSpace();	
 		currentPage.verifyPrecenceOfMsg("Пилот! Теперь нужно укомплектовать корабль!");
 		dockPage.nextTutorial();		
 		currentPage.verifyPrecenceOfMsg("Открой Магазин и купи одну Ракетную установку.");
@@ -48,7 +101,7 @@ public class TC_Tutorial_RU extends TestCase {
 		currentPage.verifyPrecenceOfMsg("Выбери категорию 'Ракеты и торпеды'.");
 		shopComponent.openMissilesAndTorpedoes();
 		currentPage.verifyPrecenceOfMsg("Любые заряды стоят денег. Используй их с умом.");
-		shopComponent.selectRocketL1();
+		shopComponent.selectRocketL2();
 		currentPage.verifyPrecenceOfMsg("Чем дороже оружие ты выбрал, тем круче урон ты можешь нанести.");
 		shopComponent.buyItem();
 		currentPage.verifyPrecenceOfMsg("Наконец то ты закончил свой шоппинг. Теперь давай оборудуем твой первый корабль.");
@@ -59,55 +112,5 @@ public class TC_Tutorial_RU extends TestCase {
 		configuratorComponent.selectMissileLauncher();
 		currentPage.verifyPrecenceOfMsg("Перетяни 'Ракета l1' в слот Вооружение.");
 		configuratorComponent.equipRocketL1();
-//		/////////////////////////
-		currentPage.verifyPrecenceOfMsg("Пилот! Кликай кнопку 'В космос!' и сделай первый учебный вылет!");
-		SpacePage spacePage = dockPage.toSpace();
-//		First tutorial quest 
-		spacePage.waitForVelocity();
-		currentPage.verifyPrecenceOfMsg("Измени масштаб, чтобы увидеть весь полигон.");
-		spacePage.zoomTheSpace();
-		currentPage.verifyPrecenceOfMsg("Обрати внимание на размеры полигона.");
-		spacePage.continueTutorial();
-		currentPage.verifyPrecenceOfMsg("Твое задание - пролети через контрольную точку.");
-		spacePage.goToTheCheckPoint();
-		currentPage.verifyPrecenceOfMsg("Отлично! Ты выполнил задание.");
-		spacePage.continueTutorial();
-//		Second tutorial quest
-		currentPage.verifyPrecenceOfMsg("Пару полезных советов.");
-		spacePage.lookArround();
-		currentPage.verifyPrecenceOfMsg("Пролети через все контрольные точки на полигоне.");
-		spacePage.goToTheCheckPoint();		
-		spacePage.goToTheCheckPoint();
-		currentPage.verifyPrecenceOfMsg("Ты справился с заданием.");
-		spacePage.continueTutorial();
-//		Third tutorial
-		currentPage.verifyPrecenceOfMsg("После каждого выстрела требуется несколько секунд для перезарядки орудий.");
-		spacePage.launchTheMissileByPressKey1();
-		currentPage.verifyPrecenceOfMsg("Теперь ты должен научиться разворачивать корабль.");
-		spacePage.turnTheShip();
-		currentPage.verifyPrecenceOfMsg("Стреляй, когда я подсвечу тебе точку пересечения траекторий полета контрольной точки и твоих ракет.");
-		spacePage.LaunchMissileOnTarget();
-		currentPage.verifyPrecenceOfMsg("Следи за количеством зарядов. Ты не сможешь пополнить их запас в космосе.");
-		spacePage.LaunchMissileOnTarget();
-//		Fourth tutorial 
-		currentPage.verifyPrecenceOfMsg("Похоже к нам приближается вражеский корабль");
-		spacePage.seeEnemyCharacteristics();
-		spacePage.verifyPrecenceOfEnemyCharacteristics();
-		currentPage.verifyPrecenceOfMsg("Слева отображаются характеристики противника. Слабоват, как по мне, и медленно двигается.");
-		spacePage.continueTutorial();
-//		currentPage.verifyPrecenceOfMsg("Чтобы открыть огонь, поверни корабль в сторону противника");
-		spacePage.turnTheShipToTheEnemy();
-		currentPage.verifyPrecenceOfMsg("Стреляй, когда я подсвечу тебе точку пересечения траекторий полета вражеского корабля и твоих ракет.");
-		spacePage.killEnemy();
-		currentPage.verifyPrecenceOfMsg("Все чисто! Ты его уничтожил.");
-		spacePage.continueTutorial();
-//		Fifth tutorial
-		currentPage.verifyPrecenceOfMsg("Кажется у нас гость. Уничтожь его.");
-		spacePage.seeEnemyCharacteristics();
-		spacePage.killEnemy();
-		currentPage.verifyPrecenceOfMsg("Ты выполнил последнее задание.");
-		spacePage.goToDock();
-//		spacePage.goToOuterSpace();
-//		spacePage.logOutFromSpace();		
 	}
 }

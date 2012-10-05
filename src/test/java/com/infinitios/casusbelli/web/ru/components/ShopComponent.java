@@ -14,7 +14,7 @@ public class ShopComponent extends BasePage {
 	private NavigationElement missilesAndTorpedoesLink = getNavigationElement("//div[contains(text(),'Ракеты и торпеды')]");
 	
 	private NavigationElement missileLauncherL1Link = getNavigationElement("//div[@id='shop-items-body']//div[contains(text(), 'Ракетная установка t.Co l1')]");
-	private NavigationElement RocketL1Link = getNavigationElement("//div[@id='shop-items-body']//div[text()='Ракета l1']/../../..");
+	private NavigationElement RocketL2Link = getNavigationElement("//div[@id='shop-items-body']//div[text()='Ракета l2']/../../..");
 	
 	private NavigationElement buyItemButton = getNavigationElement("//div[contains(@class,'footer')]//div[contains(text(), 'Купить')]");
 	private NavigationElement confirmBuyingItemButton = getNavigationElement("//div[@id='dialog']//div[contains(text(), 'Купить')]");
@@ -68,9 +68,9 @@ public class ShopComponent extends BasePage {
 		missilesAndTorpedoesLink.click();		
 	}
 
-	public void selectRocketL1() throws Exception {
-		RocketL1Link.waitForElement();
-		assertThis("Rocket L1 link is absent on Shop Component", RocketL1Link.isElementPresent());
-		RocketL1Link.mouseClick();		
+	public void selectRocketL2() throws Exception {
+		RocketL2Link.waitForElement();
+		assertThis("Rocket L1 link is absent on Shop Component", RocketL2Link.isElementPresent());
+		RocketL2Link.mouseClick();		
 	}	
 }

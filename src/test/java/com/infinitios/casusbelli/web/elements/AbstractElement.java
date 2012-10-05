@@ -119,7 +119,7 @@ public class AbstractElement  {
 	}
 
 	public boolean waitForElement(long time) throws Exception {
-		return waitForElement(time, 25);
+		return waitForElement(time, 10);
 	}
 	
 	public void moveToElement(){  

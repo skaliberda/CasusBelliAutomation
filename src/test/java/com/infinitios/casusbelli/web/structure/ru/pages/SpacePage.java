@@ -8,7 +8,7 @@ import com.infinitios.casusbelli.web.elements.OutputElement;
 import com.infinitios.casusbelli.web.structure.BasePage;
 
 public class SpacePage extends BasePage {
-	private NavigationElement spaceLogOutButton = getNavigationElement("//div[contains(@class,'exit float-left tooltip')]");
+	private NavigationElement spaceLogOutButton = getNavigationElement("//div[contains(@class,'exit')]");
 	private JSExecutor spaceCanvas = getJSExecutor("#canvas");
 	
 	private OutputElement velocityIndicator = getOutputElement("//div[@data='velocity']");
@@ -24,7 +24,7 @@ public class SpacePage extends BasePage {
 	private OutputElement enemyShipName = getOutputElement("//div[@class='ship']/div[@class='name']");
 	
 //	go to theouter space
-	private NavigationElement outerSpaceButton = getNavigationElement("//div[contains(text(),'Go to Outer Space!')]");
+	private NavigationElement outerSpaceButton = getNavigationElement("//div[contains(text(),'В открытый космос')]");
 	private NavigationElement goDockButton = getNavigationElement("//div[contains(text(),'В Док')]");
 	
 //	launch a missile

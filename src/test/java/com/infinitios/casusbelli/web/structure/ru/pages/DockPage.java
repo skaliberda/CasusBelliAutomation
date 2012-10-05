@@ -24,7 +24,7 @@ public class DockPage extends BasePage {
 	public void enterCharacterName(String characterName) throws Exception {
 		characterNameField.waitForElement();
 		assertThis("Character Name field is absent on Dock page", characterNameField.isElementPresent());
-		characterNameField.typeTextAndPressEnter(characterName);
+		characterNameField.typeText(characterName);
 	}
 
 	public void verify() {
