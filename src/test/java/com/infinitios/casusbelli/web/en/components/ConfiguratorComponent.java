@@ -8,7 +8,7 @@ import com.infinitios.casusbelli.web.structure.BasePage;
 public class ConfiguratorComponent extends BasePage {
 	
 	private NavigationElement missileLauncherButton = getNavigationElement("//div[contains(@class, 'rocket-launcher-1_i')]");
-	private NavigationElement rocketL1Button = getNavigationElement("//div[@class='store']//div[contains(@class, 'rocket-1_i eq')]");
+	private NavigationElement rocketL1Button = getNavigationElement("//div[@class='store']//div[contains(@class, 'rocket-2_i eq')]");
 //	private NavigationElement rocketLauncherSlotButton = getNavigationElement("//div[@id='slots-equipment-id-1018900']");
 //	private String rocketLauncherSlotButtonLocator = "//div[@id='store-cells']//div[contains(@class, 'missile-launcher-md-charge-1_i')]";
 	private String rocketLauncherSlotButtonLocator = "//div[@class='weapon']//div[@class='left']/div[contains(@class, 'cell slot ui-droppable')]";////div[@id='store-cells']

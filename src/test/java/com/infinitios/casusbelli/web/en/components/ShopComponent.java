@@ -14,7 +14,7 @@ public class ShopComponent extends BasePage {
 	private NavigationElement missilesAndTorpedoesLink = getNavigationElement("//div[contains(text(),'Missiles and torpedoes')]");
 	
 	private NavigationElement missileLauncherL1Link = getNavigationElement("//div[@id='shop-items-body']//div[contains(text(), 'Missile Launcher t.Co l1')]");
-	private NavigationElement RocketL1Link = getNavigationElement("//div[@id='shop-items-body']//div[text()='Rocket l1']/../../..");
+	private NavigationElement RocketL1Link = getNavigationElement("//div[@id='shop-items-body']//div[text()='Rocket l2']/../../..");
 	
 	private NavigationElement buyItemButton = getNavigationElement("//div[contains(@class,'footer')]//div[contains(text(), 'Buy')]");
 	private NavigationElement confirmBuyingItemButton = getNavigationElement("//div[@id='dialog']//div[contains(text(), 'Buy')]");

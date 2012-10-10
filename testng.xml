@@ -10,7 +10,8 @@
 			<run>
 				<exclude name="system" />
 				<exclude name="smoke" />
-				<include name="dev" />
+				<include name="space" />
+				<exclude name="dev" />
 				<exclude name="data" />
 			</run>
 		</groups>

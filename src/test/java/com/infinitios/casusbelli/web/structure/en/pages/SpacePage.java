@@ -162,7 +162,8 @@ public class SpacePage extends BasePage {
 	public void seeEnemyCharacteristics() {
 //	Click this ship to see it's characteristics
 //		TestUtils.click('#canvas', TestUtils.getNearestEnemy().x, TestUtils.getNearestEnemy().y)
-		spaceCanvas.clickAtCoordinates(spaceCanvas.getNearestEnemyXCoordinate(), spaceCanvas.getNearestEnemyYCoordinate());
+//		spaceCanvas.clickAtCoordinates(spaceCanvas.getNearestEnemyXCoordinate(), spaceCanvas.getNearestEnemyYCoordinate());
+		keys.pressSpecificKey("r");
 	}
 
 	public void verifyPrecenceOfEnemyCharacteristics() throws Exception {

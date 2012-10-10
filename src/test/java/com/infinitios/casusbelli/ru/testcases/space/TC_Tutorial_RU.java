@@ -9,8 +9,8 @@ import com.infinitios.casusbelli.web.structure.ru.pages.*;
 
 public class TC_Tutorial_RU extends TestCase {
 	
-//	@Test(groups = { "smoke" })
-	@Test(groups = { "dev" })
+	@Test(groups = { "space" })
+//	@Test(groups = { "dev" })
 	public void test() throws Exception {
 		HomePage homePage = new HomePage(driver);
 		homePage.verify();
@@ -32,7 +32,7 @@ public class TC_Tutorial_RU extends TestCase {
 		dockPage.nextTutorial();
 		
 //		/////////////////////////
-*/		currentPage.verifyPrecenceOfMsg("Пилот! Кликай кнопку 'В космос!' и сделай первый учебный вылет!");
+*/		currentPage.verifyPrecenceOfMsg("Пилот, кликай кнопку 'В космос!' и сделай первый учебный вылет");
 		SpacePage spacePage = dockPage.toSpace();
 //		First tutorial quest 
 		spacePage.waitForVelocity();
@@ -78,10 +78,10 @@ public class TC_Tutorial_RU extends TestCase {
 		spacePage.seeEnemyCharacteristics();
 		spacePage.killEnemy();
 		currentPage.verifyPrecenceOfMsg("Ты выполнил последнее задание.");
-//		spacePage.goToDock();
-		spacePage.goToOuterSpace();
-		currentPage.verifyPrecenceOfMsg("Пилот! На орбите обнаружены вражеские корабли. Земной флот нуждается в твоей помощи.");
-		spacePage.logOutFromSpace();	
+		spacePage.goToDock();
+//		spacePage.goToOuterSpace();
+//		currentPage.verifyPrecenceOfMsg("Пилот! На орбите обнаружены вражеские корабли. Земной флот нуждается в твоей помощи.");
+//		spacePage.logOutFromSpace();	
 		currentPage.verifyPrecenceOfMsg("Пилот! Теперь нужно укомплектовать корабль!");
 		dockPage.nextTutorial();		
 		currentPage.verifyPrecenceOfMsg("Открой Магазин и купи одну Ракетную установку.");
@@ -111,6 +111,7 @@ public class TC_Tutorial_RU extends TestCase {
 		currentPage.verifyPrecenceOfMsg("Кликни дважды на 'Ракетная установка t.Co l1' чтобы установить в слот Вооружение.");
 		configuratorComponent.selectMissileLauncher();
 		currentPage.verifyPrecenceOfMsg("Перетяни 'Ракета l1' в слот Вооружение.");
-		configuratorComponent.equipRocketL1();
+		configuratorComponent.equipRocketL2();
+		currentPage.verifyPrecenceOfMsg("Пилот, тебя ожидают на орбите Луны.");
 	}
 }

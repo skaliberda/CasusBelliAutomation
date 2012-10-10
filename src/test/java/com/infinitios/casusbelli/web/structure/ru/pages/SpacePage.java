@@ -23,7 +23,7 @@ public class SpacePage extends BasePage {
 	private NavigationElement allCharacteristics = getNavigationElement("//canvas[@id='canvas-target']");
 	private OutputElement enemyShipName = getOutputElement("//div[@class='ship']/div[@class='name']");
 	
-//	go to theouter space
+//	go to the outer space
 	private NavigationElement outerSpaceButton = getNavigationElement("//div[contains(text(),'В открытый космос')]");
 	private NavigationElement goDockButton = getNavigationElement("//div[contains(text(),'В Док')]");
 	
@@ -161,7 +161,8 @@ public class SpacePage extends BasePage {
 	public void seeEnemyCharacteristics() {
 //	Click this ship to see it's characteristics
 //		TestUtils.click('#canvas', TestUtils.getNearestEnemy().x, TestUtils.getNearestEnemy().y)
-		spaceCanvas.clickAtCoordinates(spaceCanvas.getNearestEnemyXCoordinate(), spaceCanvas.getNearestEnemyYCoordinate());
+//		spaceCanvas.clickAtCoordinates(spaceCanvas.getNearestEnemyXCoordinate(), spaceCanvas.getNearestEnemyYCoordinate());
+		keys.pressSpecificKey("r");
 	}
 
 	public void verifyPrecenceOfEnemyCharacteristics() throws Exception {
