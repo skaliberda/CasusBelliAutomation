@@ -59,7 +59,7 @@ public class TestCase extends BaseTestCase{
 		System.out.println("BROWSER = "+ browser);
 		System.out.println("==============================");
 		
-		driver = new EventFiringWebDriver(setBrowser(driver, browser));
+		driver = new EventFiringWebDriver(new FirefoxDriver()/*setBrowser(driver, browser)*/);
     	((EventFiringWebDriver) driver).register(new LoggingWebDriverEventListener(log));
     	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     	maximizeWindow(browser);
