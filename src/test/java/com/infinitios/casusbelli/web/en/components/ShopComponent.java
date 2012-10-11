@@ -1,5 +1,6 @@
 package com.infinitios.casusbelli.web.en.components;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import com.infinitios.casusbelli.web.elements.NavigationElement;
@@ -19,7 +20,7 @@ public class ShopComponent extends BasePage {
 	private NavigationElement buyItemButton = getNavigationElement("//div[contains(@class,'footer')]//div[contains(text(), 'Buy')]");
 	private NavigationElement confirmBuyingItemButton = getNavigationElement("//div[@id='dialog']//div[contains(text(), 'Buy')]");
 	
-	public ShopComponent(EventFiringWebDriver driver) {
+	public ShopComponent(WebDriver driver) {
 		super(driver);
 		log.info("Shop Component is opened");
 	}

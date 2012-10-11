@@ -45,7 +45,8 @@ public class BaseTestCase {
 	protected String seleniumDirPath;
 	protected String imageDirPath;
 	protected File imageDir;
-    protected EventFiringWebDriver driver;
+//    protected EventFiringWebDriver driver;
+	protected WebDriver driver;
     protected StringBuffer logFileName;
     protected String seleniumReportPathParam;
     protected String serverAddress;

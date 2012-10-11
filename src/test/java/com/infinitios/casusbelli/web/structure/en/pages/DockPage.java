@@ -1,5 +1,6 @@
 package com.infinitios.casusbelli.web.structure.en.pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import com.infinitios.casusbelli.web.elements.AbstractElement;
@@ -18,7 +19,7 @@ public class DockPage extends BasePage {
 	private NavigationElement toSpaceLink = getNavigationElement("//a[@id='launch-button']");
 	
 	private AbstractElement statisticsPanel = getWebElement("//div[@class='info panel']");
-	public DockPage(EventFiringWebDriver driver) {
+	public DockPage(WebDriver driver) {
 		super(driver);
 		log.info("Dock page is opened");
 	}

@@ -1,5 +1,6 @@
 package com.infinitios.casusbelli.web.ru.components;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import com.infinitios.casusbelli.web.elements.NavigationElement;
@@ -14,7 +15,7 @@ public class ConfiguratorComponent extends BasePage {
 	private String rocketLauncherSlotButtonLocator = "//div[@class='weapon']//div[@class='left']/div[contains(@class, 'cell slot ui-droppable')]";////div[@id='store-cells']
 //	private WebElement rocketLauncherSlotButton = driver.findElement(By.xpath("//div[@id='store-cells']//div[contains(@class, 'missile-launcher-md-charge-1_i')]"));
 	
-	public ConfiguratorComponent(EventFiringWebDriver driver) {
+	public ConfiguratorComponent(WebDriver driver) {
 		super(driver);
 		log.info("Configurator Component is opened");
 	}

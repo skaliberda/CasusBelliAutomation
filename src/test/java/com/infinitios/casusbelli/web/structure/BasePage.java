@@ -22,11 +22,11 @@ import com.infinitios.casusbelli.web.elements.SelectElement;
 import static org.fest.assertions.Assertions.assertThat;
 
 public class BasePage /*implements Page*/ {
-	protected EventFiringWebDriver driver;
+	protected WebDriver driver;
 	protected Logger log = Logger.getLogger(BaseTestCase.class);
 	protected KeysUtils keys;
 	
-	public BasePage(EventFiringWebDriver driver) {
+	public BasePage(WebDriver driver) {
 		this.driver = driver;
 		keys = new KeysUtils(driver);
 	}

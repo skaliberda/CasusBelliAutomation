@@ -1,5 +1,6 @@
 package com.infinitios.casusbelli.web.structure.en.pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import com.infinitios.casusbelli.web.elements.JSExecutor;
@@ -30,7 +31,7 @@ public class SpacePage extends BasePage {
 	
 //	launch a missile
 	private NavigationElement missileSlot = getNavigationElement("//div[contains(@class, 'rocket-launcher-1_i')]");
-	public SpacePage(EventFiringWebDriver driver) {
+	public SpacePage(WebDriver driver) {
 		super(driver);
 		log.info("Space page is opened");
 	}

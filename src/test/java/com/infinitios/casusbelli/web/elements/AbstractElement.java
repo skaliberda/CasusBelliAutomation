@@ -6,6 +6,7 @@ import java.awt.event.InputEvent;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
@@ -17,7 +18,7 @@ import com.infinitios.casusbelli.core.BaseTestCase;
 
 public class AbstractElement  {
 
-	protected EventFiringWebDriver driver;
+	protected WebDriver driver;
 	protected String elementLocator;
 	protected Logger log = Logger.getLogger(BaseTestCase.class);
 
@@ -25,7 +26,7 @@ public class AbstractElement  {
 		this.elementLocator = locator;
 	}
 
-	public void setDriver(EventFiringWebDriver driver) {
+	public void setDriver(WebDriver driver) {
 		this.driver = driver;
 	}
 	

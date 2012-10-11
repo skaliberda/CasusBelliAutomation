@@ -4,6 +4,7 @@ import com.infinitios.casusbelli.web.elements.InputElement;
 import com.infinitios.casusbelli.web.elements.NavigationElement;
 import com.infinitios.casusbelli.web.structure.BasePage;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public class HomePage extends BasePage{
@@ -27,7 +28,7 @@ public class HomePage extends BasePage{
 	private NavigationElement header = getNavigationElement("//div[@id='header']");
 	private NavigationElement footer = getNavigationElement("//div[@id='footer']");
 	
-	public HomePage(EventFiringWebDriver driver) {
+	public HomePage(WebDriver driver) {
 		super(driver);
 		log.info("Home Page is opened");
 		

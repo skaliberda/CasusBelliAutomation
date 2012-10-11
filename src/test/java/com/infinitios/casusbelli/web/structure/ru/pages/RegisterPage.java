@@ -1,5 +1,6 @@
 package com.infinitios.casusbelli.web.structure.ru.pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import com.infinitios.casusbelli.web.elements.InputElement;
@@ -12,7 +13,7 @@ public class RegisterPage extends BasePage {
 	private InputElement passwordField = getInputElement("//input[@id='reg-password']");
 	private NavigationElement playForFreeButton = getNavigationElement("//dd[@id='submit-element']/input");
 
-	public RegisterPage(EventFiringWebDriver driver) {
+	public RegisterPage(WebDriver driver) {
 		super(driver);
 		log.info("Register Page is opened");
 	}

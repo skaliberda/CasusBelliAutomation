@@ -60,7 +60,7 @@ public class TestCase extends BaseTestCase{
 		System.out.println("==============================");
 		
 		driver = new EventFiringWebDriver(setBrowser(driver, browser));
-    	driver.register(new LoggingWebDriverEventListener(log));
+    	((EventFiringWebDriver) driver).register(new LoggingWebDriverEventListener(log));
     	driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     	maximizeWindow(browser);
 		
